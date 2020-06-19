@@ -1,9 +1,8 @@
 //imports 
 import Board from "./Board.js";
-import View from "./View.js";
 
 const root = document.querySelector("#root");
-const highScore = document.querySelector("#score");
+// const highScore = document.querySelector("#score");
 
 // 0 = orbs, 1 walls, 2 ghost-lair, 3 power-pellet, 4 empty
 let test = [
@@ -36,5 +35,16 @@ let test = [
     1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 ]
-let board = new Board(test);
-new View(board, root);
+class Game {
+    constructor() {
+        this.lastRenderTime = 0;
+        this.isGameOver = false;
+    }
+    main (currentTime) {
+        window.requestAnimationFrame(main);
+        console.log(currentTime)
+    }
+
+}
+let game = new Game()
+window.requestAnimationFrame(game.main)

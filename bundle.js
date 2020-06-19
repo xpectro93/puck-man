@@ -101,65 +101,13 @@ class Board {
         //level should be an array
         this.grid = level;
     }
-    build() {
-        this.grid
+    createBoard () {
+    
     }
     
 
 }
 /* harmony default export */ __webpack_exports__["default"] = (Board);
-
-/***/ }),
-
-/***/ "./js/View.js":
-/*!********************!*\
-  !*** ./js/View.js ***!
-  \********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-class View {
-    constructor(game, el) {
-        this.game = game;
-        this.el = el;
-        this.play();
-
-    }
-
-    play() {
-        this.createBoard()
-    }
-    createBoard () {
-        for ( let i = 0; i < this.game.grid.length; i++) {
-            const box = document.createElement("div");
-            
-            
-            switch(this.game.grid[i]) {
-                case 0:
-                  box.classList.add("orb");
-                  break;
-                case 1:
-                    box.classList.add("wall");
-                  break;
-                case 2:
-                    // box.classList.add("")
-                 break;
-                case 3:
-                       box.classList.add("power-orb")
-                  break;
-                case 4:
-                    break;
-                default:
-                  
-              }
-              this.el.appendChild(box);
-        }
-    }
-
-}
-/* harmony default export */ __webpack_exports__["default"] = (View);
 
 /***/ }),
 
@@ -173,13 +121,11 @@ class View {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Board_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Board.js */ "./js/Board.js");
-/* harmony import */ var _View_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./View.js */ "./js/View.js");
 //imports 
 
 
-
 const root = document.querySelector("#root");
-const highScore = document.querySelector("#score");
+// const highScore = document.querySelector("#score");
 
 // 0 = orbs, 1 walls, 2 ghost-lair, 3 power-pellet, 4 empty
 let test = [
@@ -212,9 +158,13 @@ let test = [
     1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 ]
-let board = new _Board_js__WEBPACK_IMPORTED_MODULE_0__["default"](test);
-new _View_js__WEBPACK_IMPORTED_MODULE_1__["default"](board, root);
+class Game {
+    constructor() {
+        this.lastRenderTime = 0;
+        this.isGameOver = false;
+    }
 
+}
 
 /***/ })
 
