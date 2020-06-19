@@ -11,10 +11,25 @@ body {
 #root {
     width:100vmin;
     height:100vmin;
-    background-color: azure;
+    display:grid;
+    background-color:azure;
     grid-template-rows: repeat(28, 1fr);
+    grid-template-columns: repeat(28,1fr);
     
 } 
 #score, h2  {
     color:white;
+}
+
+.orb {
+    background-color: whitesmoke;
+    border:.25vmin solid whitesmoke;
+}
+.wall {
+    background-color: blue;
+}
+
+.power-orb {
+    background-color: whitesmoke;
+    border-radius: .25vmin;
 }
