@@ -53,11 +53,11 @@ class Game {
         this.render()
     }
     update () {
-
+        this.player.update();
     }
 
     render () {
-
+        this.player.render(root);
     }
 }
 let player = new Player();
