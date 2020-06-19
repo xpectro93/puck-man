@@ -1,9 +1,19 @@
 class Player {
     constructor() {
         //initial index for pucman
-        this.player  = 490;
+        this.speed  = 1;
         this.isAlive = true;
     }
+
+    update () {
+        
+    }
+
+    render () {
+
+    }
+
+
 }
 
-module.exports = Player;
+export default Player;

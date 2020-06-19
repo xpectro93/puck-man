@@ -1,6 +1,6 @@
 //imports 
 import Board from "./Board.js";
-
+import Player from './Player.js'
 const root = document.querySelector("#root");
 // const highScore = document.querySelector("#score");
 
@@ -36,15 +36,36 @@ let test = [
     1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
 ]
 class Game {
-    constructor() {
+    constructor(puck) {
+        this.player = puck;
         this.lastRenderTime = 0;
         this.isGameOver = false;
+        this.main = this.main.bind(this)
     }
-    main (currentTime) {
-        window.requestAnimationFrame(main);
-        console.log(currentTime)
+    main(currentTime) {
+        const secondsSinceLastRender =  (currentTime - this.lastRenderTime) / 1000
+        window.requestAnimationFrame(this.main);
+        if(secondsSinceLastRender < 1 / this.player.speed) return
+        console.log("Render");
+
+        this.lastRenderTime = currentTime
+        this.update()
+        this.render()
+    }
+    update () {
+
     }
 
+    render () {
+
+    }
 }
-let game = new Game()
+let player = new Player();
+let game = new Game (player);
 window.requestAnimationFrame(game.main)
+// function main( currentTime = 0) {
+//     console.log("current time before", currentTime)
+//     window.requestAnimationFrame(main);
+//     console.log(currentTime);
+// }
+// window.requestAnimationFrame(main)
