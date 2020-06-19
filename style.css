@@ -30,6 +30,6 @@ body {
 }
 
 .power-orb {
-    background-color: whitesmoke;
-    border-radius: .25vmin;
+    background-color: red;
+    border-radius: 50%;
 }
