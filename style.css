@@ -1,0 +1,14 @@
+body {
+    height:100vh;
+    width:100vw;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    margin:0;
+    background-color:black;
+}
+#root {
+    width:100vmin;
+    height:100vmin;
+    background-color: azure;
+} 
