@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items:center;
     margin:0;
-    background-color:black;
+    /* background-color:black; */
 }
 #root {
     width:100vmin;

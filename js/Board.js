@@ -2,19 +2,18 @@
 class Board {
     constructor(level) {
         //level should be an array
-        this.grid = level;
+        this.level = level
     }
     update () {
 
     }
-    getPlayer
-    render (board) {
-        this.grid.forEach((row,i) => {
+    draw (board) {
+        this.level.forEach((row,i) => {
 
             row.forEach((segment, j) => {
                 const box = document.createElement("div");
 
-                box.style.gridRowStart = i +1;
+                box.style.gridRowStart = i + 1;
                 box.style.gridColumnStart = j + 1;
                 switch(segment) {
                     case 0:
@@ -29,7 +28,9 @@ class Board {
                     case 3:
                            box.classList.add("power-orb")
                       break;
-                    case 4:
+                    case 5:
+                           box.classList.add('puck-man');
+                           console.log('pacman is here', i,j)
                         break;
                     default:
                       

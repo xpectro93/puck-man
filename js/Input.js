@@ -1,6 +1,5 @@
 class Input {
     constructor() {
-        this.direction = {x: 0, y :0};
     }
     getDirection () {
         window.addEventListener('keydown', e => {
@@ -8,19 +7,19 @@ class Input {
             switch (e.key) {
               case 'ArrowUp':
                 // if (lastInputDirection.y !== 0) break
-                this.direction = { x: 0, y: -1 }
+                return { x: 0, y: -1 }
                 break
               case 'ArrowDown':
-                // if (lastthis.direction = !== 0) break
-                this.direction = { x: 0, y: 1 }
+                // if (lastreturn !== 0) break
+                return { x: 0, y: 1 }
                 break
               case 'ArrowLeft':
-                // if (lastthis.direction = !== 0) break
-                this.direction = { x: -1, y: 0 }
+                // if (lastreturn !== 0) break
+                return { x: -1, y: 0 }
                 break
               case 'ArrowRight':
-                // if (lastthis.direction = !== 0) break
-                this.direction = { x: 1, y: 0 }
+                // if (lastreturn !== 0) break
+                return { x: 1, y: 0 }
                 break
             }
           })
@@ -28,3 +27,28 @@ class Input {
     }
 }
 export default Input;
+// class Input {
+//       constructor(puck_man, game) {
+//         window.addEventListener('keydown', e => {
+//           switch (e.key) {
+//             case 'ArrowUp':
+//               puck_man.moveUp();
+//               break
+//             case 'ArrowDown':
+//               puck_man.moveDown();
+//               break
+//             case 'ArrowLeft':
+//               puck_man.moveLeft();
+//               break
+//             case 'ArrowRight':
+//               puck_man.moveRight();
+//               break
+//           }
+//         })
+//       }
+ 
+        
+ 
+
+//   }
+//   export default Input;
