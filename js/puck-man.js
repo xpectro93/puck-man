@@ -57,6 +57,7 @@ class Game {
     }
 
     render () {
+        root.innerHTML = ""
         this.player.render(root);
     }
 }
