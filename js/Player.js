@@ -3,7 +3,7 @@ class Player {
     constructor() {
         //initial index for pucman
         this.speed  = 3;
-        this.coords = { x :10, y:10}
+        this.coords = { x :15, y:18}
         this.isAlive = true;
         this.input = new Input();
     }
