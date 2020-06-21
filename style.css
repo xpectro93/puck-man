@@ -40,7 +40,7 @@ body {
     border-radius: 50%;
 }
 #game {
-    background-color: pink ;
+    background-color: rgb(24, 24, 24) ;
     width:100vmin;
     height:100vmin;
 }

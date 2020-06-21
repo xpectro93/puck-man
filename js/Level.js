@@ -1,20 +1,25 @@
-import Wall from "./Wall.js"
+import Tile from "./Tile.js"
 
 export function createBoard (gameInstance, levelArray) {
 
-    let walls = [];
+    let tiles = [];
     let x = 0;
     let y = 0;
+    let startPosition = []
     levelArray.forEach(row => {
         x = 0
         row.forEach(box => {
+
+            if(box === 5) startPosition = [x, y]
+            let pos = {x,y};
             if(box === 1) {
                 // ctx.fillStyle = `rgba(0, 0, 200)`;
-                console.log('this is happening',x,y, box)
                 //x,y,width, height
-                let pos = {x,y};
-                walls.push(new Wall(gameInstance,pos))
+                tiles.push(new Tile(gameInstance,pos,"wall"))
                 // ctx.fillRect(x, y, canvas.width/28, canvas.height/31);
+            }
+            if(box === 2) {
+                tiles.push(new Tile(gameInstance,pos,"orb"))
             }
             // if(box === 3) {
             //     ctx.fillStyle = `rgba(0, 255,0`;
@@ -30,7 +35,7 @@ export function createBoard (gameInstance, levelArray) {
         
         y+=gameInstance.gameHeight/31;
     })
-    return walls
+    return [tiles, startPosition]
 }
 
 export const proto = [

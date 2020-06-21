@@ -1,19 +1,22 @@
 import { createBoard, proto } from "./Level.js"
+import PuckMan from './PuckMan.js'
 class Game {
-    constructor(gameWidth, gameHeight) {
+    constructor(gameWidth, gameHeight,speed) {
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
-        this.walls = [];
+        this.puck_man;
+        this.tiles = [];
         console.log(this)
-        this.start()
+        this.start(speed)
     }
-    start() {
-        this.walls = createBoard(this, proto);
+    start(speed) {
+        let [tiles, startPosition ] = createBoard(this, proto);
+        this.tiles = tiles;
+        this.puck_man = new PuckMan(this,speed, startPosition)
     }
     draw(ctx) {
-        console.log('Game drawing')
-        this.walls.forEach(obj => obj.draw(ctx));
-        console.log(this.walls)
+        this.tiles.forEach(obj => obj.draw(ctx));
+        this.puck_man.draw(ctx);
     }
 }
 export default Game;
