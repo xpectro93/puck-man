@@ -39,3 +39,8 @@ body {
     background-color:yellow;
     border-radius: 50%;
 }
+#game {
+    background-color: pink ;
+    width:100vmin;
+    height:100vmin;
+}
