@@ -56,7 +56,12 @@ function gameLoop (currentTime) {
     const secSinceLastRender = (currentTime - lastRenderTime) / 1000;
     if(secSinceLastRender < 1 / SPEED ) return;
 
-    lastRenderTime = currentTime
+    lastRenderTime = currentTime;
+
+    //clear board before re-rendering;
+    ctx.clearRect(0,0,canvas.width, canvas.height)
+    
+    game.update();
     game.draw(ctx);
     console.log('render')
 
