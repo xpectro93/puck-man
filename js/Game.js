@@ -27,13 +27,17 @@ class Game {
             width: this.puck_man.width};
             this.tiles.forEach(tile => {
                 
-                if(hasCollided(PM,tile) && tile.type === "wall" ) {
+
+                //Uses PM variable to check if the next move would hit the wall
+                //if the next move hits wall, the direction is changed to 0;
+                //then puck_man is updated accordingly
+                if(hasCollided(PM,tile)) {
                     this.puck_man.direction = {x :0, y:0};
-                    // this.puck_man.position = 
-                    console.log('has collided')
+                    // debugger
                 }
                 tile.update(ctx)
             })
+            console.log('updatesdsddsd')
             this.puck_man.update(ctx)
 
         //update puck-man

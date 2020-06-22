@@ -12,17 +12,16 @@ export function hasCollided(puck_man, tile){
     let leftTile = tile.position.x;
     let rightTile = tile.position.x + tile.width;
 
-    //Top/bottom
+    //Top/bottomI
+
     if(bottomPuck > topTile &&
        topPuck < bottomTile &&
        rightPuck > leftTile &&
-       leftPuck < rightTile
-       
-       ) {
+       Math.round(leftPuck) < Math.round(rightTile) &&
+       tile.type === "wall") {
+        //    debugger
            return true;
     }
-
-
     return false;
 
 }
