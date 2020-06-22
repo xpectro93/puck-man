@@ -15,10 +15,9 @@ export function hasCollided(puck_man, tile){
     //Top/bottomI
 
     if(bottomPuck > topTile &&
-       topPuck < bottomTile &&
+       Math.round(topPuck) < Math.round(bottomTile) &&
        rightPuck > leftTile &&
-       Math.round(leftPuck) < Math.round(rightTile) &&
-       tile.type === "wall") {
+       Math.round(leftPuck) < Math.round(rightTile)) {
         //    debugger
            return true;
     }

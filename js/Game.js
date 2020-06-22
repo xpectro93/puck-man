@@ -11,7 +11,8 @@ class Game {
         this.puck_man;
         this.tiles = [];
         console.log(this)
-        this.start(speed)
+        this.start(speed);
+        this.score = 0;
     }
     start(speed) {
         let [tiles, startPosition ] = createBoard(this, proto);
@@ -31,13 +32,21 @@ class Game {
                 //Uses PM variable to check if the next move would hit the wall
                 //if the next move hits wall, the direction is changed to 0;
                 //then puck_man is updated accordingly
-                if(hasCollided(PM,tile)) {
+                //WALL COLLISION
+                if(hasCollided(PM,tile) && tile.type === "wall") {
                     this.puck_man.direction = {x :0, y:0};
                     // debugger
                 }
-                tile.update(ctx)
+                if(hasCollided(PM,tile) && tile.type === "orb") {
+                    // this.puck_man.direction = {x :0, y:0};
+                    this.score +=tile.value;
+                    tile.update(ctx);
+                    console.log(this.score);
+                    // debugger
+                }
             })
-            console.log('updatesdsddsd')
+            console.log('update')
+            this.tiles = this.tiles.filter(tile => !tile.markedForDeletion);
             this.puck_man.update(ctx)
 
         //update puck-man
@@ -54,3 +63,7 @@ export default Game;
 
 //its always colliding we can try to update puckman by checking if the update is valid;
 //have to keep in mind that puckman is updated before the tiles;
+
+
+//NOTE: for invalid moves look into when the event Input happens then check if this input
+//will create a collision to wall then just cancel that input :)
