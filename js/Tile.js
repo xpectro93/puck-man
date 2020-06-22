@@ -11,8 +11,7 @@ class Tile {
         this.value = type === "orb" ? 10 :0;
     }
     update(ctx) {
-        ctx.fillStyle = `rgba(0, 200, 0)`;
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        
     }
 
     draw (ctx) {
@@ -28,6 +27,10 @@ class Tile {
             ctx.arc(arcX,arcY,7,0,2*Math.PI,false)
             ctx.fill();
             // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        }
+        if(this.type === "empty") {
+            ctx.fillStyle = `rgb(24,24,24)`;
+            ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
         }
         
     }
