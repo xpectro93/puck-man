@@ -24,7 +24,7 @@ class Tile {
             let arcY =  this.position.y +((this.height)/2)
             ctx.beginPath();
             ctx.fillStyle = "white";
-            ctx.arc(arcX,arcY,7,0,2*Math.PI,false)
+            ctx.arc(arcX,arcY,5,0,2*Math.PI,false)
             ctx.fill();
             // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
         }
