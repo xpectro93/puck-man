@@ -17,25 +17,25 @@ class PuckMan {
     }
     moveLeft() {
         this.direction =  {
-            x: -1, y : 0
+            x: -this.width, y : 0
         }
     };
     
     moveRight() {
         this.direction =  {
-            x: 1, y : 0
+            x: this.width, y : 0
         }
     }
 
     moveUp() {
         this.direction = {
-            x:0, y:-1
+            x:0, y:-this.height
         }
     }
 
     moveDown() {
         this.direction = {
-            x:0, y: 1
+            x:0, y: this.height
         }
     }
     draw(ctx) {
@@ -44,6 +44,7 @@ class PuckMan {
     }
 
     update() {
+        //collision should be in the view of what the object is going to touch
         console.log(this.position,"direction")
         this.position.x += this.direction.x;
         this.position.y += this.direction.y;

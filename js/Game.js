@@ -17,8 +17,9 @@ class Game {
         new Input(this.puck_man)
         console.log('this game is starting ')
     }
-    update() {
+    update(ctx) {
         this.puck_man.update()
+        this.tiles.forEach(tile => tile.update(ctx))
     }
     draw(ctx) {
         this.tiles.forEach(obj => obj.draw(ctx));

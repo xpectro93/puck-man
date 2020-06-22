@@ -1,3 +1,5 @@
+import { hasCollided } from "./Collision.js";
+
 class Tile {
     constructor(gameInstance, position,type) {
         this.game = gameInstance;
@@ -7,7 +9,12 @@ class Tile {
         this.type = type;
         this.hasCollision = true;
     }
-    update() {
+    update(ctx) {
+        if(hasCollided(this.game.puck_man, this)) {
+            ctx.fillStyle = `rgba(0, 200,0)`;
+            ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+            console.log('has Collided',this.game.puck_man.position.x, this.position.x)
+        }
     }
 
     draw (ctx) {

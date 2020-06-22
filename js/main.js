@@ -61,7 +61,7 @@ function gameLoop (currentTime) {
     //clear board before re-rendering;
     ctx.clearRect(0,0,canvas.width, canvas.height)
     
-    game.update();
+    game.update(ctx);
     game.draw(ctx);
     console.log('render')
 
