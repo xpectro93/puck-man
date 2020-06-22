@@ -35,18 +35,18 @@ class Game {
                 //WALL COLLISION
                 if(hasCollided(PM,tile) && tile.type === "wall") {
                     this.puck_man.direction = {x :0, y:0};
+                    tile.update(ctx);
                     // debugger
                 }
                 if(hasCollided(PM,tile) && tile.type === "orb") {
                     // this.puck_man.direction = {x :0, y:0};
                     this.score +=tile.value;
-                    tile.update(ctx);
                     console.log(this.score);
                     // debugger
                 }
             })
             console.log('update')
-            this.tiles = this.tiles.filter(tile => !tile.markedForDeletion);
+            // this.tiles = this.tiles.filter(tile => !tile.markedForDeletion);
             this.puck_man.update(ctx)
 
         //update puck-man
