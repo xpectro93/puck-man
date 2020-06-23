@@ -16,10 +16,11 @@ class Game {
         this.ghosts;
     }
     start(speed) {
-        let [grid, startPosition, ghosts ] = createGameObjectGrid(this, proto);
+        let [grid, start, ghosts ] = createGameObjectGrid(this, proto);
         this.tiles = grid;
-        // debugger;
-        this.puck_man = new PuckMan(this,speed, startPosition);
+        this.puck_man = new PuckMan(this,speed, start);
+        
+        debugger;
         this.ghosts = ghosts;
         //adds event listener that executes function when button is pressed.
         new Input(this.puck_man)
@@ -64,7 +65,7 @@ class Game {
         this.tiles.forEach(objRow => {
             objRow.forEach(obj => obj.draw(ctx));
         });
-    //     this.puck_man.draw(ctx);
+        this.puck_man.draw(ctx);
     //     this.ghosts.forEach(ghost=>{
     //         ghost.draw(ctx)});
     }

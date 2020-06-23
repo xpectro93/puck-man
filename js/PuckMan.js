@@ -10,10 +10,7 @@ class PuckMan {
 
         this.speed = speed;
 
-        this.position ={
-            x : startPosition[0],
-            y : startPosition[1]
-        }
+        this.position = startPosition
     }
     moveLeft() {
         this.direction =  {
@@ -44,8 +41,10 @@ class PuckMan {
        
     }
     draw(ctx) {
+        let posX = this.position.x * this.width;
+        let posY = this.position.y * this.height;
         ctx.fillStyle ="Yellow";
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        ctx.fillRect(posX, posY, this.width, this.height);
     }
 
     update() {
