@@ -76,7 +76,7 @@ export const proto = [
     [1,2,2,2,2,2,2,2,2,2,2,2,2,1,1,2,2,2,2,2,2,2,2,2,2,2,2,1],
     [1,2,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,1,1,2,1],
     [1,2,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,1,1,2,1],
-    [1,4,2,2,1,1,2,2,2,2,2,2,2,2,5,2,2,2,2,2,2,2,1,1,2,2,4,1],
+    [1,4,2,2,1,1,2,2,2,2,2,2,2,0,5,2,2,2,2,2,2,2,1,1,2,2,4,1],
     [1,1,1,2,1,1,2,1,1,2,1,1,1,1,1,1,1,1,2,1,1,2,1,1,2,1,1,1],
     [1,1,1,2,1,1,2,1,1,2,1,1,1,1,1,1,1,1,2,1,1,2,1,1,2,1,1,1],
     [1,2,2,2,2,2,2,1,1,2,2,2,2,1,1,2,2,2,2,1,1,2,2,2,2,2,2,1],
@@ -85,3 +85,35 @@ export const proto = [
     [1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,1],
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ]
+
+
+export function createGameObjectGrid(gameInstance, levelArray) {
+    let grid = [];
+    let start;
+    levelArray.forEach( (row, y) => {
+        let objectRowArray = [];
+
+        row.forEach( (box, x) => {
+            if(box === 5) start = {x,y}
+            let position = {x,y};
+            if(box === 1) {
+                let newWall = new Tile(gameInstance,position, "wall");
+                objectRowArray.push(newWall);
+            }else if(box === 2 || box === 5) {
+                let newOrb = new Tile(gameInstance, position, "orb");
+                objectRowArray.push(newOrb);
+            } else {
+                let newEmpty = new Tile(gameInstance, position, "empty");
+                objectRowArray.push(newEmpty);
+            }
+            
+
+
+        })
+
+        grid.push(objectRowArray);
+
+    })
+
+    return [grid, start];
+}

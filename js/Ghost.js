@@ -39,23 +39,19 @@ class Ghost {
         return randomDirection;
     }
     move(tiles) {
-        let hasNotHitWall = true;
         let test = {
             position :this.getRandomDirection(),
             height : this.height,
             weight : this.width
         };
-
-        while(hasNotHitWall) {
-            hasNotHitWall = false;
             tiles.forEach(tile => {
-                // debugger
+                // console.log('wall hit')
+                // de
                 if(hasCollided(test,tile) && tile.type === "wall") {
-                    hasNotHitWall = true;
-                    console.log('this hits')
+                    test.position = this.getRandomDirection()
+                    // debugger
                 }
             })
-        }
         // debugger
         return test.position
     }
