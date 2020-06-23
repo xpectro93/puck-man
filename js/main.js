@@ -8,7 +8,7 @@ let ctx = canvas.getContext('2d');
 const GAME_WIDTH = canvas.width = window.innerWidth;
 const GAME_HEIGHT = canvas.height = window.innerHeight;
 
-let SPEED = 5.50;
+let SPEED = 5.5;
 let game = new Game(GAME_WIDTH, GAME_HEIGHT, SPEED)
 let lastRenderTime = 0;
 
@@ -21,14 +21,13 @@ function gameLoop (currentTime) {
     requestAnimationFrame(gameLoop);
 
     const secSinceLastRender = (currentTime - lastRenderTime) / 1000;
+
     if(secSinceLastRender < 1 / SPEED ) return;
 
     lastRenderTime = currentTime;
-
-    //clear board before re-rendering;
-    ctx.clearRect(0,0,canvas.width, canvas.height)
     
-    game.update(ctx);
+    ctx.clearRect(0,0,canvas.width, canvas.height)
+    game.update(currentTime);
     game.draw(ctx);
     console.log('render')
 

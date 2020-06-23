@@ -1,9 +1,9 @@
-export function hasCollided(puck_man, tile){
+export function hasCollided(avatar, tile){
     //Puck collision
-    let topPuck = Math.round(puck_man.position.y );
-    let bottomPuck = Math.round(puck_man.position.y + puck_man.height);
-    let leftPuck = Math.round(puck_man.position.x);
-    let rightPuck = Math.round(puck_man.position.x + puck_man.width);
+    let topPuck = Math.round(avatar.position.y );
+    let bottomPuck = Math.round(avatar.position.y + avatar.height);
+    let leftPuck = Math.round(avatar.position.x);
+    let rightPuck = Math.round(avatar.position.x + avatar.width);
 
 
     //Tile collision
