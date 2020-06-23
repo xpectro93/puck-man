@@ -4,7 +4,7 @@ class PuckMan {
         this.height = gameInstance.gameHeight/31;
 
         this.direction = {
-            x :0,
+            x :-1,
             y: 0
         }
 
@@ -14,29 +14,29 @@ class PuckMan {
     }
     moveLeft() {
         this.direction =  {
-            x: -this.width, y : 0
+            x: -1, y : 0
         }
     };
     
     moveRight() {
         this.direction =  {
-            x: this.width, y : 0
+            x: 1, y : 0
         }
     }
 
     moveUp() {
         this.direction = {
-            x:0, y:-this.height
+            x:0, y:-1
         }
     }
 
     moveDown() {
         this.direction = {
-            x:0, y: this.height
+            x:0, y: 1
         }
     }
     getPossibleMove() {
-        return { x : this.position.x + this.direction.x,
+        return { x: this.position.x + this.direction.x,
                   y: this.position.y + this.direction.y}
        
     }

@@ -20,46 +20,14 @@ class Game {
         this.tiles = grid;
         this.puck_man = new PuckMan(this,speed, start);
         
-        debugger;
-        this.ghosts = ghosts;
+        // debugger;
+        // this.ghosts = ghosts;
         //adds event listener that executes function when button is pressed.
         new Input(this.puck_man)
         console.log('this game is starting ')
     }
     update(currentTime) {
-        //puckman instance/ tile instance
-        //GAME WIN
-        // if(this.tiles.every(tile=> tile.type !== "orb"))debugger
-        // let PM = {
-        //     position: this.puck_man.getPossibleMove(),
-        //     height: this.puck_man.height,
-        //     width: this.puck_man.width};
-            
-        //     this.tiles.forEach(tile => {
-                
-                
-        //         //Uses PM variable to check if the next move would hit the wall
-        //         //if the next move hits wall, the direction is changed to 0;
-        //         //then puck_man is updated accordingly
-        //         //WALL COLLISION
-        //         if(hasCollided(PM,tile) && tile.type === "wall") {
-        //             this.puck_man.direction = {x :0, y:0};
-        //             // debugger
-        //         }
-        //         if(hasCollided(PM,tile) && tile.type === "orb") {
-        //             this.score +=tile.value;
-        //             console.log(this.score);
-        //             tile.value = 0;
-        //             tile.type = "empty"
-        //             // debugger
-        //         }
-        //         // tile.update(ctx);
-        //     })
-        //     this.puck_man.update(currentTime);
-        //     this.ghosts.forEach(ghost => ghost.update(this.tiles))
-        //     console.log('update')
-
-        
+        this.puck_man.update()
     }
     draw(ctx) {
         this.tiles.forEach(objRow => {
