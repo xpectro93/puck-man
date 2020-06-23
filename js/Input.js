@@ -1,7 +1,7 @@
 class Input {
-    constructor(puck_man) {
+    constructor(puck_man, test) {
         document.addEventListener("keydown", e => {
-            console.log('Key is pressed', e.key)
+            console.log('Key is pressed', e.key);
             switch (e.key) {
                 case 'ArrowUp':
                 //   if (lastInputDirection.y !== 0) break

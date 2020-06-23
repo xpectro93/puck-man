@@ -18,12 +18,17 @@ class Game {
         let [tiles, startPosition ] = createBoard(this, proto);
         this.tiles = tiles;
         this.puck_man = new PuckMan(this,speed, startPosition);
+
+        //adds event listener that executes function when button is pressed.
         new Input(this.puck_man)
         console.log('this game is starting ')
     }
     update(ctx) {
         //puckman instance/ tile instance
-        let PM = {position: this.puck_man.getPossibleMove(),
+        //GAME WIN
+        if(this.tiles.every(tile=> tile.type !== "orb"))debugger
+        let PM = {
+            position: this.puck_man.getPossibleMove(),
             height: this.puck_man.height,
             width: this.puck_man.width};
             this.tiles.forEach(tile => {
