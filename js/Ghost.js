@@ -52,7 +52,7 @@ class Ghost {
                 // debugger
                 if(hasCollided(test,tile) && tile.type === "wall") {
                     hasNotHitWall = true;
-                    // debugger
+                    console.log('this hits')
                 }
             })
         }
@@ -60,8 +60,10 @@ class Ghost {
         return test.position
     }
     update(tiles) {
-        
-        this.position = this.move(tiles)
+        let ultraIntelligentMove = this.move(tiles);
+        this.position.x += ultraIntelligentMove.x;
+        this.position.y += ultraIntelligentMove.y;
+        // debugger
     }
 
     draw(ctx) {
