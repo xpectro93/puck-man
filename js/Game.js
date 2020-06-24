@@ -43,7 +43,7 @@ class Game {
             tile.value = 0;
         } 
         this.puck_man.update();
-        this.ghosts.forEach(ghost => ghost.update(this.tiles))
+        this.ghosts.forEach(ghost => ghost.update(this.tiles, this.puck_man.position))
 
     }
     draw(ctx) {

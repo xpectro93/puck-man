@@ -12,7 +12,8 @@ class Ghost {
         this.speed = speed;
         this.position = startPosition;
         
-        this.type = type
+        this.type = type;
+        this.randomMoveCount = 0;
     }
     getMove(direction){
         let dir;
@@ -36,7 +37,7 @@ class Ghost {
         let randomDirection = this.getMove(dirArray[Math.floor(Math.random() * dirArray.length)]);
         return randomDirection;
     }
-    move(tiles) {
+    move(tiles, puck_position) {
         let test = this.getRandomDirection();
         let pos = {
             x: test.x + this.position.x,
@@ -57,12 +58,46 @@ class Ghost {
                 }
                 tile = tiles[pos.y][pos.x];
             }
+
+            if(this.randomMoveCount < 0) {
+
+            }
+            if(this.randomMoveCount % 21 === 0) {
+                console.log('this b random')
+                if(!this.isMoveCloser(puck_position, pos)) {
+                    isWall = true;
+                    test = this.getRandomDirection();
+                    pos = {
+                        x: test.x + this.position.x,
+                        y: test.y + this.position.y
+                    }
+                    tile = tiles[pos.y][pos.x];
+                }
+            }
+            
         }
         // debugger
         return test
     }
-    update(tiles) {
-        let ultraIntelligentMove = this.move(tiles);
+    isMoveCloser(puckPos, p) {
+        let isXcloser = false;
+        let isYcloser = false;
+
+        if ((p.x - puckPos.x) > (this.position.x - puckPos.x)){
+            isXcloser = true
+        } 
+        // debugger
+        if ((p.y - puckPos.y) > (this.position.y - puckPos.y)) {
+            isYcloser = true;
+        }
+        if(isXcloser 
+            || isYcloser) return true;
+        return false;
+
+    }
+    update(tiles,puck) {
+        let ultraIntelligentMove = this.move(tiles,puck);
+        this.randomMoveCount+=1
         this.position.x += ultraIntelligentMove.x;
         this.position.y += ultraIntelligentMove.y;
         // debugger
