@@ -12,11 +12,108 @@ const dungeon = [
     [0,0,1,1,0,0,0],
     [1,0,1,7,0,1,0]
   ];
-  //
-  class BFS {
-    constructor() {
-      this.dungeon = new Map();
-    }
+//
+//We can check if the coordinate is out of bounds
+//by checking if our x or y are less than 0
+
+//we ccan start to solve our problem by adding our starting point to the queue;
+//Then we can visit our valid neighbors and add them to the queue;
+
+// const findValidNeighbors =
+// const findExit = (start, end) => {
+//     let 
+// }
+
+//Breaking down the problem;
+//first we have to create a graph out of the tiles we can move through;
+//We can then use the graph to find the shortest path from our starting
+//to our end position
+// -- one thing we may need to keep in mind would be a way to keep track of the path
+//    we took to get there
+
+
+class GNode {
+  constructor(val) {
+    this.val = val;
   }
-  
-  //To create
+};
+
+
+
+class Graph {
+  constructor() {
+    this.list = new Map();
+  }
+  //This will be the block objs
+  addVertex(vertex) {
+    if(!this.list.has(vertex)) {
+      this.list.set(vertex, new Set());
+    }
+    return this;
+  }
+  // this will be the nodes they are connected to 
+  addEdge(vertex, node) {
+    //checks if vertex exists within the graph;
+    if(this.list.has(vertex)){
+      let vertexSet = this.list.get(vertex);
+
+      //if not connected yet, we add;
+      if(!vertexSet.has(node)) {
+        vertexSet.add(node);
+      }
+    }else return;
+  };
+
+  //DFS uses stacks;
+  DFSPrint(start) {
+    //keep track of visited neighbors
+    let visited = new Set();
+
+   const DFSHelper = (ref) => {
+    //add to visited to prevent infinite loop;
+    visited.add(ref);
+    console.log(ref);
+
+    //start checking neighbors;
+    let refSet = this.list.get(ref);
+
+    refSet.forEach(node => {
+      if(!visited.has(node)) {
+        DFSHelper(node);
+      }
+    })
+
+   }
+
+   //start DFS 
+   DFSHelper(start);
+  }
+  //starting point;
+
+
+};
+
+
+let a = new GNode('a');
+let b = new GNode('b');
+let c = new GNode('c');
+let d = new GNode('d');
+let e = new GNode('e');
+let f = new GNode('f');
+
+
+let letters = [a,b,c,d,e,f];
+let test = new Graph();
+
+letters.forEach(letter => test.addVertex(letter));
+test.addEdge(a, b);
+test.addEdge(a, d);
+test.addEdge(a, e);
+test.addEdge(b, c);
+test.addEdge(d, e);
+test.addEdge(e, f);
+test.addEdge(e, c);
+test.addEdge(c, f);
+
+test.DFSPrint(a);
+
