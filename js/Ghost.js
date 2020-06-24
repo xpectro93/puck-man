@@ -59,9 +59,7 @@ class Ghost {
                 tile = tiles[pos.y][pos.x];
             }
 
-            if(this.randomMoveCount < 0) {
 
-            }
             if(this.randomMoveCount % 21 === 0) {
                 console.log('this b random')
                 if(!this.isMoveCloser(puck_position, pos)) {
