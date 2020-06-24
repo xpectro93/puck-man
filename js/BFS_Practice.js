@@ -88,7 +88,32 @@ class Graph {
    //start DFS 
    DFSHelper(start);
   }
-  //starting point;
+  //BFS uses queues;
+  BFSPrint(start) {
+    let visited = new Set();
+    visited.add(start);
+    let q = [start];
+
+
+    //this will keep going until there are no  more nodes to look at on the queue;
+    while(q.length) {
+      let current = q.shift();
+
+      console.log(current.val)
+      let neighbors = this.list.get(current);
+
+        neighbors.forEach(node => {
+          if(!visited.has(node)){
+            visited.add(node);
+            q.push(node);
+          }
+        })
+
+      
+
+
+    }
+   }
 
 
 };
@@ -115,5 +140,6 @@ test.addEdge(e, f);
 test.addEdge(e, c);
 test.addEdge(c, f);
 
-test.DFSPrint(a);
+// test.DFSPrint(a);
+test.BFSPrint(a);
 
