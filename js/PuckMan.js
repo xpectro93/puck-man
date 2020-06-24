@@ -1,43 +1,60 @@
+import { hasCollided } from './Collision.js'
 class PuckMan {
     constructor(gameInstance,speed, startPosition) {
         this.width = gameInstance.gameWidth/28;
         this.height = gameInstance.gameHeight/31;
 
         this.direction = {
-            x :-1,
+            x :0,
             y: 0
         }
 
         this.speed = speed;
 
-        this.position = startPosition
+        this.position = startPosition;
+        this.lastAttempt = {x: 0,y:0};
     }
-    moveLeft() {
+    moveLeft(tiles) {
+        let PM = this.getPossibleMove({x:-1,y:0})
+        let posTile = tiles[PM.y][PM.x]
+
+        //If the move leads to a wall, this input is cancelled
+        if(hasCollided(PM,posTile) && posTile.type === "wall") return;
         this.direction =  {
             x: -1, y : 0
         }
+        
     };
     
-    moveRight() {
+    moveRight(tiles) {
+        let PM = this.getPossibleMove({x:1,y:0})
+        let posTile = tiles[PM.y][PM.x]
+        if(hasCollided(PM,posTile) && posTile.type === "wall") return;
         this.direction =  {
             x: 1, y : 0
         }
     }
 
-    moveUp() {
+    moveUp(tiles) {
+        let PM = this.getPossibleMove({x:0,y:-1})
+        let posTile = tiles[PM.y][PM.x]
+        if(hasCollided(PM,posTile) && posTile.type === "wall") return;
         this.direction = {
             x:0, y:-1
         }
     }
 
-    moveDown() {
+    moveDown(tiles) {
+        let PM = this.getPossibleMove({x:0,y:1})
+        let posTile = tiles[PM.y][PM.x]
+        if(hasCollided(PM,posTile) && posTile.type === "wall") return;
         this.direction = {
             x:0, y: 1
         }
     }
-    getPossibleMove() {
-        return { x: this.position.x + this.direction.x,
-                  y: this.position.y + this.direction.y}
+    getPossibleMove(dir = this.direction) {
+        return { x: this.position.x + dir.x,
+                  y: this.position.y + dir.y}
        
     }
     draw(ctx) {

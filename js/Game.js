@@ -16,18 +16,35 @@ class Game {
         this.ghosts;
     }
     start(speed) {
-        let [grid, start, ghosts ] = createGameObjectGrid(this, proto);
+        let [ grid, start, ghosts ] = createGameObjectGrid(this, proto);
         this.tiles = grid;
         this.puck_man = new PuckMan(this,speed, start);
         
         // debugger;
-        // this.ghosts = ghosts;
+        this.ghosts = ghosts;
         //adds event listener that executes function when button is pressed.
-        new Input(this.puck_man)
+        new Input(this.puck_man, this.tiles)
         console.log('this game is starting ')
     }
-    update(currentTime) {
-        this.puck_man.update()
+    update() {
+        let isGameClear = this.tiles.every(row => {
+           return row.every(cel => cel.type !== "orb") 
+        });
+        if(isGameClear) debugger
+        let PM = this.puck_man.getPossibleMove();
+        let posTile = this.tiles[PM.y][PM.x]
+        // debugger
+        if(hasCollided(PM, posTile) && posTile.type ==="wall") {
+            this.puck_man.direction = {x : 0, y:0 };
+        } 
+        if(hasCollided(PM, posTile) && posTile.type ==="orb") {
+            let tile  =  this.tiles[PM.y][PM.x];
+            tile.type = "empty";
+            tile.value = 0;
+        } 
+        this.puck_man.update();
+        this.ghosts.forEach(ghost => ghost.update(this.tiles))
+
     }
     draw(ctx) {
         this.tiles.forEach(objRow => {

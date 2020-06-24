@@ -10,26 +10,24 @@ class Ghost {
             y: 0
         }
         this.speed = speed;
-        this.position ={
-            x : startPosition[0],
-            y : startPosition[1]
-        }
+        this.position = startPosition;
+        
         this.type = type
     }
     getMove(direction){
         let dir;
         switch(direction) {
             case "left":
-                dir = { x: -this.width, y : 0 };
+                dir = { x: -1, y : 0 };
                 break;
             case "right":
-                dir = { x: this.width, y : 0 };
+                dir = { x: 1, y : 0 };
                 break;
             case "up":
-                dir = { x:0, y:-this.height };
+                dir = { x:0, y:-1 };
                 break;
             case "down":
-                dir = { x:0, y: this.height };
+                dir = { x:0, y: 1 };
         }
         return dir;
     }
@@ -39,21 +37,29 @@ class Ghost {
         return randomDirection;
     }
     move(tiles) {
-        let test = {
-            position :this.getRandomDirection(),
-            height : this.height,
-            weight : this.width
-        };
-            tiles.forEach(tile => {
-                // console.log('wall hit')
-                // de
-                if(hasCollided(test,tile) && tile.type === "wall") {
-                    test.position = this.getRandomDirection()
-                    // debugger
-                }
-            })
+        let test = this.getRandomDirection();
+        let pos = {
+            x: test.x + this.position.x,
+            y: test.y + this.position.y
+        }
+        let isWall = true;
         // debugger
-        return test.position
+        let tile = tiles[pos.y][pos.x];
+        
+        while(isWall) {
+            isWall = false;
+            if(hasCollided(pos, tile) && tile.type === "wall") {
+                isWall = true;
+                test = this.getRandomDirection();
+                pos = {
+                    x: test.x + this.position.x,
+                    y: test.y + this.position.y
+                }
+                tile = tiles[pos.y][pos.x];
+            }
+        }
+        // debugger
+        return test
     }
     update(tiles) {
         let ultraIntelligentMove = this.move(tiles);
@@ -65,7 +71,7 @@ class Ghost {
     draw(ctx) {
         if(this.type === "blinky")  ctx.fillStyle = "red"; 
         if(this.type === "pinky") ctx.fillStyle = "pink";
-        ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        ctx.fillRect(this.position.x * this.width, this.position.y * this.height, this.width, this.height);
     }
     
 }

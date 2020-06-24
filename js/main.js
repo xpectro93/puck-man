@@ -42,7 +42,7 @@ const proto = [
 const GAME_WIDTH = canvas.width = window.innerWidth;
 const GAME_HEIGHT = canvas.height = window.innerHeight;
 
-let SPEED = 1;
+let SPEED = 7.50;
 let game = new Game(GAME_WIDTH, GAME_HEIGHT, SPEED)
 let lastRenderTime = 0;
 
@@ -65,26 +65,4 @@ function gameLoop (currentTime) {
 }
 requestAnimationFrame(gameLoop);
 
-
-// let w = GAME_WIDTH /28;
-// let h = GAME_HEIGHT / 31;
-
-
-// const createBoard = ( ) => {
-//     proto.forEach((row, y) => {
-//         row.forEach((box,x) => {
-
-//             let posX = x * w;
-//             let posY = y * h;
-//             if(box === 1) {
-//                 ctx.fillStyle = `rgb(0,0,255)`;
-//             }else {
-//                 ctx.fillStyle ="rgb(24,24,24)";
-//             }
-//             ctx.fillRect(posX, posY,w,h);
-//         })
-//     })
-//     ctx.fillStyle ="rgb(0,255,0)";
-// }
-// createBoard()
 

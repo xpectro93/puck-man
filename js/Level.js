@@ -90,6 +90,7 @@ export const proto = [
 export function createGameObjectGrid(gameInstance, levelArray) {
     let grid = [];
     let start;
+    let ghosts = [];
     levelArray.forEach( (row, y) => {
         let objectRowArray = [];
 
@@ -102,6 +103,15 @@ export function createGameObjectGrid(gameInstance, levelArray) {
             }else if(box === 2 || box === 5) {
                 let newOrb = new Tile(gameInstance, position, "orb");
                 objectRowArray.push(newOrb);
+            } else if(box === "b") {
+                let blinky = new Ghost(gameInstance, 5.25,{x,y},'blinky');
+                ghosts.push(blinky);
+                objectRowArray.push(blinky);
+            } else if(box === "p") {
+                let pinky = new Ghost(gameInstance, 5.25,{x,y},'pinky');
+                ghosts.push(pinky);
+                objectRowArray.push(pinky);
+
             } else {
                 let newEmpty = new Tile(gameInstance, position, "empty");
                 objectRowArray.push(newEmpty);
@@ -115,5 +125,5 @@ export function createGameObjectGrid(gameInstance, levelArray) {
 
     })
 
-    return [grid, start];
+    return [grid, start, ghosts];
 }

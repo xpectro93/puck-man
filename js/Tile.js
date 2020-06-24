@@ -7,7 +7,6 @@ class Tile {
         this.width = this.game.gameWidth / 28;
         this.height = this.game.gameHeight / 31;
         this.type = type;
-        this.hasCollision = true;
         this.value = type === "orb" ? 10 :0;
     }
     update(ctx) {
