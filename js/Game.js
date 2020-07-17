@@ -51,8 +51,7 @@ class Game {
             objRow.forEach(obj => obj.draw(ctx));
         });
         this.puck_man.draw(ctx);
-        this.ghosts.forEach(ghost=>{
-            ghost.draw(ctx)});
+        this.ghosts.forEach(ghost=>ghost.draw(ctx));
     }
 }
 export default Game;
