@@ -9,10 +9,6 @@ class Tile {
         this.type = type;
         this.value = type === "orb" ? 10 :0;
     }
-    update(ctx) {
-        
-    }
-
     draw (ctx) {
 
         let posX = this.position.x * this.width;
