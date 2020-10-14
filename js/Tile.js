@@ -1,4 +1,3 @@
-// import { hasCollided } from "./Collision.js";
 
 class Tile {
     constructor(gameInstance, position,type) {
