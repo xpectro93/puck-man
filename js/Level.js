@@ -29,15 +29,7 @@ export function createBoard (gameInstance, levelArray) {
             if(box === 2) {
                 tiles.push(new Tile(gameInstance,pos,"orb"))
             }
-            // if(box === 3) {
-            //     ctx.fillStyle = `rgba(0, 255,0`;
-            //     ctx.fillRect(x, y, canvas.width/28, canvas.height/31);
-            // }
-            // if(box === 5) {
-            //     console.log('this is happening',x,y)
-            //     ctx.fillStyle = `rgba(255, 255,0`;
-            //     ctx.fillRect(x, y, canvas.width/28, canvas.height/31);
-            // }
+           
             x+=gameInstance.gameWidth/28
         })
         
