@@ -15,10 +15,14 @@ class PuckMan {
         this.lastAttempt = {x: 0,y:0};
     }
     move(lePM) {
-
+        
+        if(hasCollided(PM,posTile) && posTile.type === "wall") return;
+        this.direction =  {
+            x: -1, y : 0
+        }  
     }
     moveLeft(tiles) {
-        let PM = this.getPossibleMove()
+        let PM = this.getPossibleMove({x:-1,y:0})
         let posTile = tiles[PM.y][PM.x]
 
         //If the move leads to a wall, this input is cancelled
