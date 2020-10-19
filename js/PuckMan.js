@@ -14,14 +14,14 @@ class PuckMan {
         this.position = startPosition;
         this.lastAttempt = {x: 0,y:0};
     }
-    move(input) {
+    move(input,map) {
         let PM = this.getPossibleMove(input)
-        let posTile = tiles[PM.y][PM.x]
+        let posTile = map[PM.y][PM.x]
         if(hasCollided(PM,posTile) && posTile.type === "wall") return;
         this.direction =  input
     }
     moveLeft(tiles) {
-        this.move({x:-1,y:0});
+        this.move({x:-1,y:0},tiles);
         // let PM = this.getPossibleMove({x:-1,y:0})
         // let posTile = tiles[PM.y][PM.x]
 
