@@ -46,12 +46,15 @@ class PuckMan {
     }
 
     moveUp(tiles) {
-        let PM = this.getPossibleMove({x:0,y:-1})
-        let posTile = tiles[PM.y][PM.x]
-        if(hasCollided(PM,posTile) && posTile.type === "wall") return;
-        this.direction = {
-            x:0, y:-1
-        }
+
+        this.move({x:0,y:-1},tiles);
+
+        // let PM = this.getPossibleMove({x:0,y:-1})
+        // let posTile = tiles[PM.y][PM.x]
+        // if(hasCollided(PM,posTile) && posTile.type === "wall") return;
+        // this.direction = {
+        //     x:0, y:-1
+        // }
     }
 
     moveDown(tiles) {
