@@ -88,8 +88,8 @@ class Ghost {
         if ((p.y - puckPos.y) > (this.position.y - puckPos.y)) {
             isYcloser = true;
         }
-        if(isXcloser 
-            || isYcloser) return true;
+        if(isXcloser || 
+           isYcloser) return true;
         return false;
 
     }

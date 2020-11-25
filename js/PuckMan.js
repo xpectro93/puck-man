@@ -22,51 +22,24 @@ class PuckMan {
     }
     moveLeft(tiles) {
         this.move({x:-1,y:0},tiles);
-        // let PM = this.getPossibleMove({x:-1,y:0})
-        // let posTile = tiles[PM.y][PM.x]
-
-        // //If the move leads to a wall, this input is cancelled
-        // if(hasCollided(PM,posTile) && posTile.type === "wall") return;
-        // this.direction =  {
-        //     x: -1, y : 0
-        // }
+ 
         
     };
     
     moveRight(tiles) {
 
         this.move({x:1,y:0},tiles);
-
-        // let PM = this.getPossibleMove({x:1,y:0})
-        // let posTile = tiles[PM.y][PM.x]
-        // if(hasCollided(PM,posTile) && posTile.type === "wall") return;
-        // this.direction =  {
-        //     x: 1, y : 0
-        // }
     }
 
     moveUp(tiles) {
 
         this.move({x:0,y:-1},tiles);
-
-        // let PM = this.getPossibleMove({x:0,y:-1})
-        // let posTile = tiles[PM.y][PM.x]
-        // if(hasCollided(PM,posTile) && posTile.type === "wall") return;
-        // this.direction = {
-        //     x:0, y:-1
-        // }
     }
 
     moveDown(tiles) {
 
         this.move({x:0,y:1},tiles);
 
-        // let PM = this.getPossibleMove({x:0,y:1})
-        // let posTile = tiles[PM.y][PM.x]
-        // if(hasCollided(PM,posTile) && posTile.type === "wall") return;
-        // this.direction = {
-        //     x:0, y: 1
-        // }
     }
     getPossibleMove(dir = this.direction) {
         return { x: this.position.x + dir.x,
