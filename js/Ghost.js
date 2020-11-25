@@ -1,5 +1,7 @@
 
 import { hasCollided } from "./Collision.js";
+import Pathing from "./Pathing.js";
+
 class Ghost {
     constructor(gameInstance, speed, startPosition,type) {
         this.width = gameInstance.gameWidth /28;
@@ -94,10 +96,38 @@ class Ghost {
 
     }
     update(tiles,puck) {
-        let ultraIntelligentMove = this.move(tiles,puck);
-        this.randomMoveCount+=1
-        this.position.x += ultraIntelligentMove.x;
-        this.position.y += ultraIntelligentMove.y;
+        
+        let search = Pathing(this.position, puck.position, tiles);
+        //start, end, tiles,ctx
+       while (search.openSet.length) {
+        
+        let stepValue = search.step();
+
+        if(!search.openSet.length) {
+
+            console.log("ended no answer");
+            return;
+        }
+        if(stepValue === 1) {
+            console.log('answer found');
+            let path = search.constructPath();
+            console.log("Path", path) 
+        }
+
+       }
+
+
+
+
+
+
+
+
+
+        // let ultraIntelligentMove = this.move(tiles,puck);
+        // this.randomMoveCount+=1
+        // this.position.x += ultraIntelligentMove.x;
+        // this.position.y += ultraIntelligentMove.y;
         // debugger
     }
 

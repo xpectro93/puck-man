@@ -26,7 +26,7 @@
 // }
 
 //avatar is obj containing indexes as position, and with and height, same for tile;
-
+export const isValidLocation = (mtx, y,x) =>  mtx[y] && mtx[y][x]!== undefined;
 export function hasCollided(position, tile) {
 
     //if their x and y position is the same they have collided.

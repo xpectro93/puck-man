@@ -1,3 +1,4 @@
+import { isValidLocation } from "./Collision.js"
 
 class Tile {
     constructor(gameInstance, position,type) {
@@ -18,8 +19,8 @@ class Tile {
         for (let move of moves) {
 
             const [row,col] = move;
-            let nr = row + this.y;
-            let nc = col + this.x;
+            let nr = row + this.position.y;
+            let nc = col + this.position.x;
 
                 //if it is or is not a wall, then we add this to our valid neighbors array;
                 if(isValidLocation(grid,nr,nc) && 
