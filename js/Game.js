@@ -30,7 +30,10 @@ class Game {
         let isGameClear = this.tiles.every(row => {
            return row.every(cel => cel.type !== "orb") 
         });
-        if(isGameClear) debugger
+        if(isGameClear){
+            console.log('game clear')    
+            debugger
+        }
         let PM = this.puck_man.getPossibleMove();
         let posTile = this.tiles[PM.y][PM.x]
         // debugger
