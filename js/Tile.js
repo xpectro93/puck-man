@@ -7,6 +7,29 @@ class Tile {
         this.height = this.game.gameHeight / 31;
         this.type = type;
         this.value = type === "orb" ? 10 :0;
+        this.h = 0;
+        this.g = 0;
+        this.f = 0;
+    }
+    getNeighbors(grid) {
+        // Could be a property of the class?
+        let moves = [[-1,0],[0,1],[1,0],[0,-1]];
+        let neighbors = [];
+        for (let move of moves) {
+
+            const [row,col] = move;
+            let nr = row + this.y;
+            let nc = col + this.x;
+
+                //if it is or is not a wall, then we add this to our valid neighbors array;
+                if(isValidLocation(grid,nr,nc) && 
+                  (grid[nr][nc].value !== "wall")) {
+
+                    neighbors.push(grid[nr][nc]);
+                }
+        }
+        
+        return neighbors
     }
     draw (ctx) {
 
