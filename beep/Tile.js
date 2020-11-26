@@ -29,4 +29,28 @@ class Tile {
     isValidLocation( grid, y, x ) {
         return grid[y] && grid[y][x] !== undefined;
     }
+    draw( ctx ) {
+        let posX = this.x * this.width;
+        let posY = this.y * this.height;
+
+        if(this.type === "wall"){
+            ctx.fillStyle = `rgba(0, 0, 200)`;
+            ctx.fillRect(posX,posY, this.width, this.height);
+        }
+        if(this.type === "orb") {
+            let arcX = posX + (this.width/2)
+            let arcY =  posY +((this.height)/2)
+            ctx.beginPath();
+            ctx.fillStyle = "white";
+            ctx.arc(arcX,arcY,5,0,2*Math.PI,false)
+            ctx.fill();
+            // ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
+        }
+        if(this.type === "empty") {
+            ctx.fillStyle = `rgb(24,24,24)`;
+            ctx.fillRect(posX, posY, this.width, this.height);
+        }
+
+        
+    }
 }

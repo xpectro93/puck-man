@@ -1,5 +1,11 @@
-import Tile from "./Tile.js"
-import Ghost from './Ghost.js';
+
+
+// import Tile from "./Tile.js"
+// import Ghost from './Ghost.js';
+
+const type = {
+    b: new Ghost
+}
 export function createBoard (gameInstance, levelArray) {
 
     let tiles = [];
