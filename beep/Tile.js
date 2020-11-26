@@ -1,5 +1,5 @@
 class Tile {
-    constructor(x,y, width, height, type) {
+    constructor(x,y,type) {
         this.x = x;
         this.y = y;
         this.g = 0;
@@ -54,3 +54,4 @@ class Tile {
         
     }
 }
+export default Tile;
