@@ -1,17 +1,20 @@
 class Pathing {
     constructor(start, target, tiles) {
     
-        this.seen = new Set();
+        this.closedSet = new Set();
         this.start = start;
         this.openSet = [start];
         this.lastVisited = start;
+        this.target = target;
+        this.tiles = tiles;
+        console.log("this b target", target)
 
     }
     step() {
         //initialize at 0 because is the first item in the queue;
         let lowestFIndex = 0;
         for(let i = 0; i < this.openSet.length;i++) {
-
+            console.log('called', this.closedSet, this.openSet, this.target)
             //TODO:Change this to priority queue/minhheap for O(1) lookup
 
             //check if a vertex in openSet has Lower f than current lowest f
@@ -34,9 +37,9 @@ class Pathing {
         //change lastVertexVisited to be the current vertex
         let current =  this.openSet[lowestFIndex];
         this.lastVertexVisited = current;
+        // debugger
 
-
-        
+        console.log("current", current)
         //check if we have found our target;
         if(this.target === current) {
             console.log('Target has been found');
@@ -48,8 +51,8 @@ class Pathing {
         this.openSet = this.openSet.filter(vertex => vertex !== current);
 
         this.closedSet.add(current);
-        let currentNeighbors = current.getNeighbors(this.grid,1, false);
-
+        let currentNeighbors = current.getNeighbors(this.tiles);
+        // debugger;
         for(let neighbor of currentNeighbors) {
 
             //if neighbor is part of closed set, then skip 
@@ -76,8 +79,9 @@ class Pathing {
         };
     }
     getHeuristic(start, end) {
-        let newX = Math.abs(start.x - end.x);
-        let newY = Math.abs(start.y - end.y);
+        console.log("start abd ed",start,end)
+        let newX = Math.abs(start.position.x - end.position.x);
+        let newY = Math.abs(start.position.y - end.position.y);
 
         return newX + newY;
     }

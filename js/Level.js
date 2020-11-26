@@ -45,6 +45,8 @@ export function createBoard (gameInstance, levelArray) {
 // 5 = spawning point
 // 6 = TP
 export const proto = [
+
+
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
     [1,2,2,2,2,2,2,2,2,2,2,2,2,1,1,2,2,2,2,2,2,2,2,2,2,2,2,1],
     [1,2,1,1,1,1,2,1,1,1,1,1,2,1,1,2,1,1,1,1,1,2,1,1,1,1,2,1],
@@ -99,12 +101,14 @@ export function createGameObjectGrid(gameInstance, levelArray) {
                 let blinky = new Ghost(gameInstance, 5.25,{x,y},'blinky');
                 ghosts.push(blinky);
                 objectRowArray.push(blinky);
-            } else if(box === "p") {
-                let pinky = new Ghost(gameInstance, 5.25,{x,y},'pinky');
-                ghosts.push(pinky);
-                objectRowArray.push(pinky);
+            } 
+            // else if(box === "p") {
+            //     let pinky = new Ghost(gameInstance, 5.25,{x,y},'pinky');
+            //     ghosts.push(pinky);
+            //     objectRowArray.push(pinky);
 
-            } else {
+            // }
+             else {
                 let newEmpty = new Tile(gameInstance, position, "empty");
                 objectRowArray.push(newEmpty);
             }

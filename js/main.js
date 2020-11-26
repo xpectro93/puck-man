@@ -41,8 +41,8 @@ const proto = [
 //x, y, width, height
 const GAME_WIDTH = canvas.width = window.innerWidth;
 const GAME_HEIGHT = canvas.height = window.innerHeight;
-
-let SPEED = 7.50;
+//7.50
+let SPEED = .50;
 let game = new Game(GAME_WIDTH, GAME_HEIGHT, SPEED)
 let lastRenderTime = 0;
 
@@ -63,6 +63,9 @@ function gameLoop (currentTime) {
     console.log('render')
 
 }
-requestAnimationFrame(gameLoop);
+// requestAnimationFrame(gameLoop);
+
+game.update();
+game.draw(ctx);
 
 

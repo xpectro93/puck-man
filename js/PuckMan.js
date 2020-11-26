@@ -1,4 +1,4 @@
-import { hasCollided } from './Collision.js'
+import { hasCollided, isValidLocation } from './Collision.js'
 class PuckMan {
     constructor(gameInstance,speed, startPosition) {
         this.width = gameInstance.gameWidth/28;
@@ -13,6 +13,10 @@ class PuckMan {
 
         this.position = startPosition;
         this.lastAttempt = {x: 0,y:0};
+
+        this.h = 0;
+        this.g = 0;
+        this.f = 0;
     }
     move(input,map) {
         let PM = this.getPossibleMove(input)
@@ -57,6 +61,26 @@ class PuckMan {
         //collision should be in the view of what the object is going to touch
         this.position.x += this.direction.x;
         this.position.y += this.direction.y;
+    }
+    getNeighbors(grid) {
+        // Could be a property of the class?
+        let moves = [[-1,0],[0,1],[1,0],[0,-1]];
+        let neighbors = [];
+        for (let move of moves) {
+
+            const [row,col] = move;
+            let nr = row + this.position.y;
+            let nc = col + this.position.x;
+
+                //if it is or is not a wall, then we add this to our valid neighbors array;
+                if(isValidLocation(grid,nr,nc) && 
+                  (grid[nr][nc].type !== "wall")) {
+
+                    neighbors.push(grid[nr][nc]);
+                }
+        }
+        
+        return neighbors
     }
 }
 export default PuckMan;

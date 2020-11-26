@@ -1,5 +1,5 @@
 
-import { hasCollided } from "./Collision.js";
+import { hasCollided, isValidLocation } from "./Collision.js";
 import Pathing from "./Pathing.js";
 
 class Ghost {
@@ -16,6 +16,11 @@ class Ghost {
         
         this.type = type;
         this.randomMoveCount = 0;
+
+
+        this.h = 0;
+        this.g = 0;
+        this.f = 0;
     }
     getMove(direction){
         let dir;
@@ -97,24 +102,28 @@ class Ghost {
     }
     update(tiles,puck) {
         
-        let search = Pathing(this.position, puck.position, tiles);
+        let search = new Pathing(this, puck, tiles);
+
+        console.log("NEW SEARCH")
         //start, end, tiles,ctx
        while (search.openSet.length) {
         
         let stepValue = search.step();
 
         if(!search.openSet.length) {
-
             console.log("ended no answer");
+
             return;
         }
         if(stepValue === 1) {
             console.log('answer found');
             let path = search.constructPath();
             console.log("Path", path) 
+            break;
         }
 
        }
+       console.log("broken")
 
 
 
@@ -135,6 +144,28 @@ class Ghost {
         if(this.type === "blinky")  ctx.fillStyle = "red"; 
         if(this.type === "pinky") ctx.fillStyle = "pink";
         ctx.fillRect(this.position.x * this.width, this.position.y * this.height, this.width, this.height);
+    }
+    getNeighbors(grid) {
+
+        console.log('this b grid, ', grid, this)
+        // Could be a property of the class?
+        let moves = [[-1,0],[0,1],[1,0],[0,-1]];
+        let neighbors = [];
+        for (let move of moves) {
+
+            const [row,col] = move;
+            let nr = row + this.position.y;
+            let nc = col + this.position.x;
+
+                //if it is or is not a wall, then we add this to our valid neighbors array;
+                if(isValidLocation(grid,nr,nc) && 
+                  (grid[nr][nc].type !== "wall")) {
+
+                    neighbors.push(grid[nr][nc]);
+                }
+        }
+        console.log('NEIGHTNBOERs', neighbors)
+        return neighbors
     }
     
 }

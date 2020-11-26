@@ -24,7 +24,7 @@ class Tile {
 
                 //if it is or is not a wall, then we add this to our valid neighbors array;
                 if(isValidLocation(grid,nr,nc) && 
-                  (grid[nr][nc].value !== "wall")) {
+                  (grid[nr][nc].type !== "wall")) {
 
                     neighbors.push(grid[nr][nc]);
                 }

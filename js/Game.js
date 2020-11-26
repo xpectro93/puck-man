@@ -20,7 +20,7 @@ class Game {
         this.tiles = grid;
         this.puck_man = new PuckMan(this,speed, start);
         
-        debugger;
+        
         this.ghosts = ghosts;
         //adds event listener that executes function when button is pressed.
         new Input(this.puck_man, this.tiles)
@@ -47,7 +47,10 @@ class Game {
         } 
         this.puck_man.update();
                                                     //tiles, target
-        this.ghosts.forEach(ghost => ghost.update(this.tiles, this.puck_man.position))
+        this.ghosts.forEach(ghost => {
+ 
+            ghost.update(this.tiles, this.puck_man)
+        })
 
     }
     draw(ctx) {
