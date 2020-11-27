@@ -1,4 +1,5 @@
-import Tile from "./Tile.js"
+import Tile from "./Tile.js";
+import Ghost from './Ghost.js';
 const proto = [
 
 
@@ -35,6 +36,7 @@ const proto = [
     [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 ]
 
+//level shouldd be in charge of itself 
 class Level {
     constructor(width, height) {
         this.board = this.createBoard(proto, width, height)
@@ -57,17 +59,17 @@ class Level {
                     let newOrb = new Tile(x,y,w,h, "orb");
                     objectRowArray.push(newOrb);
                 } 
-                // else if(box === "b") {
-                //     let blinky = new Ghost(gameInstance, 5.25,{x,y},'blinky');
-                //     ghosts.push(blinky);
-                //     objectRowArray.push(blinky);
-                // } 
-                // else if(box === "p") {
-                //     let pinky = new Ghost(gameInstance, 5.25,{x,y},'pinky');
-                //     ghosts.push(pinky);
-                //     objectRowArray.push(pinky);
+                else if(box === "b") {
+                    let blinky = new Ghost(x,y,w,h,'blinky');
+                    ghosts.push(blinky);
+                    objectRowArray.push(blinky);
+                } 
+                else if(box === "p") {
+                    let pinky = new Ghost(x,y,w,h,'pinky');
+                    ghosts.push(pinky);
+                    objectRowArray.push(pinky);
 
-                // }
+                }
                 else {
                     let newEmpty = new Tile(x,y,w,h, "empty");
                     objectRowArray.push(newEmpty);
