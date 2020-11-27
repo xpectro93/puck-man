@@ -36,10 +36,10 @@ const proto = [
 ]
 
 class Level {
-    constructor() {
-        this.board = this.createBoard(proto)
+    constructor(width, height) {
+        this.board = this.createBoard(proto, width, height)
     }
-    createBoard( levelArray ) { 
+    createBoard( levelArray,w,h) { 
         let grid = [];
         let start;
         let ghosts = [];
@@ -50,10 +50,11 @@ class Level {
                 // if(box === 5) start = {x,y}
                 let position = { x,y };
                 if(box === 1) {
-                    let newWall = new Tile(x,y, "wall");
+                    let newWall = new Tile(x,y,w,h, "wall");
                     objectRowArray.push(newWall);
-                }else if(box === 2 || box === 5) {
-                    let newOrb = new Tile(x,y, "orb");
+                }
+                 else if(box === 2 || box === 5) {
+                    let newOrb = new Tile(x,y,w,h, "orb");
                     objectRowArray.push(newOrb);
                 } 
                 // else if(box === "b") {
@@ -68,20 +69,21 @@ class Level {
 
                 // }
                 else {
-                    let newEmpty = new Tile(x,y, "empty");
+                    let newEmpty = new Tile(x,y,w,h, "empty");
                     objectRowArray.push(newEmpty);
                 }
-                
-
-
             })
-
             grid.push(objectRowArray);
-
         })
-
-    return grid;
+        return grid;
     }
+    draw (ctx) {
+        this.board.forEach( row => {
+            row.forEach( cell => {
+                cell.draw(ctx);
+            })
+        })
+    };
 }
 export default Level;
 

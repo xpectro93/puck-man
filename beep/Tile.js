@@ -1,11 +1,13 @@
 class Tile {
-    constructor(x,y,type) {
+    constructor(x,y,w,h,type) {
         this.x = x;
         this.y = y;
         this.g = 0;
         this.h = 0;
         this.f = 0;
-        this.type =type
+        this.type =type;
+        this.width = w;
+        this.height = h;
     }
     getNeighbors( grid ) {
         let moves = [[-1,0],[0,1],[1,0],[0,-1]];
@@ -38,6 +40,7 @@ class Tile {
             ctx.fillRect(posX,posY, this.width, this.height);
         }
         if(this.type === "orb") {
+            console.log('orb')
             let arcX = posX + (this.width/2)
             let arcY =  posY +((this.height)/2)
             ctx.beginPath();

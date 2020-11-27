@@ -24,8 +24,11 @@ function gameLoop (currentTime) {
     ctx.clearRect(0,0,canvas.width, canvas.height)
     console.log(game)
     // game.update(currentTime);
-    // game.draw(ctx);
+    game.draw(ctx);
 
 
 }
 requestAnimationFrame(gameLoop);
+
+
+// game.draw(ctx)
