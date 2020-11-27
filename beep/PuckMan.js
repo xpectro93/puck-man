@@ -42,9 +42,12 @@ class PuckMan extends Tile{
     }
 
     puckCollide(tiles) {
+        //this should be broken down to smaller pieces to be added to board, andd if they return true updatee board
         let PM = this.getPossibleMove();
         let posTile = tiles[PM.y][PM.x];
 
+
+        
         if( this.hasCollided(PM,posTile) && posTile.type === "wall" ) {
             this.direction = { x: 0, y: 0};
         }
