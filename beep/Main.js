@@ -22,8 +22,7 @@ function gameLoop (currentTime) {
     lastRenderTime = currentTime;
     
     ctx.clearRect(0,0,canvas.width, canvas.height)
-    console.log(game)
-    // game.update(currentTime);
+    game.update();
     game.draw(ctx);
 
 

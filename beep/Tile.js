@@ -31,6 +31,16 @@ class Tile {
     isValidLocation( grid, y, x ) {
         return grid[y] && grid[y][x] !== undefined;
     }
+     hasCollided(position, tile) {
+
+        //if their x and y position is the same they have collided.
+        if(position.x === tile.x &&
+            position.y === tile.y) {
+    
+                return true;
+            }  
+        return false;
+    }
     draw( ctx ) {
         let posX = this.x * this.width;
         let posY = this.y * this.height;
@@ -40,7 +50,7 @@ class Tile {
             ctx.fillRect(posX,posY, this.width, this.height);
         }
         if(this.type === "orb") {
-            console.log('orb')
+
             let arcX = posX + (this.width/2)
             let arcY =  posY +((this.height)/2)
             ctx.beginPath();

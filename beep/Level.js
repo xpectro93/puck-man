@@ -39,7 +39,6 @@ const proto = [
 //level shouldd be in charge of itself 
 class Level {
     constructor(width, height) {
-        console.log('widh',width,height)
         this.board = this.createBoard(proto, width, height)
     }
     createBoard( levelArray,w,h) { 

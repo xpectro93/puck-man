@@ -1,5 +1,6 @@
 import PuckMan from "./PuckMan.js";
 import Level from "./Level.js";
+import Input from "../js/Input.js";
 //game shouldd be in charge of rules
 class Game {
     constructor( gameWidth, gameHeight) {
@@ -16,18 +17,16 @@ class Game {
     start() {
         this.puckMan = new PuckMan(13,23,this.gameWidth/28, this.gameHeight/31)
         this.puckMan.type = "puck";
-        console.log(this.puckMan)
+
         // debugger
         this.level.board[this.puckMan.y][this.puckMan.x] = this.puckMan;
+        new Input(this.puckMan, this.level.board);
     }
     draw( ctx ) {
         this.level.draw(ctx);
     }
     update() {
-        //check pieces
-        //update if certain conditions happen
-        //here should be all other pieces update calls being done
-        //the board class can move pieces on but its up to the pieces to say if they can or cannot move 
+        this.puckMan.update();
     }
 }
 export default Game;
