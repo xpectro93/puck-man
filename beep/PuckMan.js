@@ -13,16 +13,11 @@ class PuckMan extends Tile{
     move(input,map) {
         let PM = this.getPossibleMove(input)
         let posTile = map[PM.y][PM.x]
-        console.log('happening')
         if(this.hasCollided(PM,posTile) && posTile.type === "wall") return;
         this.direction =  input
-        console.log('dir',this.direction)
     }
     moveLeft(tiles) {
-        console.log(tiles)
-        this.move({x:-1,y:0},tiles);
- 
-        
+        this.move({x:-1,y:0},tiles);     
     };
     
     moveRight(tiles) {
