@@ -8,7 +8,7 @@ const GAME_WIDTH = canvas.width = window.innerWidth;
 const GAME_HEIGHT = canvas.height = window.innerHeight;
 
 const SPEED = 1.50;
-let game = new Game( GAME_WIDTH, GAME_HEIGHT, SPEED );
+let game = new Game( GAME_WIDTH, GAME_HEIGHT);
 let lastRenderTime = 0;
 
 function gameLoop (currentTime) {

@@ -1,11 +1,11 @@
+import PuckMan from "./PuckMan.js";
 import Level from "./Level.js";
-
 //game shouldd be in charge of rules
 class Game {
-    constructor( gameWidth, gameHeight, speed ) {
+    constructor( gameWidth, gameHeight) {
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
-        this.puck_man;
+        this.puckMan;
         this.level = new Level(gameWidth /28, gameHeight/31);
 
         this.score = 0;
@@ -14,7 +14,11 @@ class Game {
     } 
 
     start() {
-        
+        this.puckMan = new PuckMan(13,23,this.gameWidth/28, this.gameHeight/31)
+        this.puckMan.type = "puck";
+        console.log(this.puckMan)
+        // debugger
+        this.level.board[this.puckMan.y][this.puckMan.x] = this.puckMan;
     }
     draw( ctx ) {
         this.level.draw(ctx);

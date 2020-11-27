@@ -39,6 +39,7 @@ const proto = [
 //level shouldd be in charge of itself 
 class Level {
     constructor(width, height) {
+        console.log('widh',width,height)
         this.board = this.createBoard(proto, width, height)
     }
     createBoard( levelArray,w,h) { 
@@ -71,7 +72,7 @@ class Level {
 
                 }
                 else {
-                    let newEmpty = new Tile(x,y,w,h, "empty");
+                    let newEmpty = new Tile(x,y,w,h);
                     objectRowArray.push(newEmpty);
                 }
             })

@@ -1,5 +1,5 @@
 class Tile {
-    constructor(x,y,w,h,type) {
+    constructor(x,y,w,h,type = "empty") {
         this.x = x;
         this.y = y;
         this.g = 0;

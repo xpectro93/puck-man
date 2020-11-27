@@ -1,21 +1,14 @@
-class PuckMan {
-    constructor(gameInstance,speed, startPosition) {
-        this.width = gameInstance.gameWidth/28;
-        this.height = gameInstance.gameHeight/31;
+import Tile from "./Tile.js";
 
+class PuckMan extends Tile{
+    constructor(x,y,w,h) {
+        super(x,y,w,h)
+        console.log("asfsf",x,y,w,h)
         this.direction = {
             x :0,
             y: 0
         }
-
-        this.speed = speed;
-
-        this.position = startPosition;
         this.lastAttempt = {x: 0,y:0};
-
-        this.h = 0;
-        this.g = 0;
-        this.f = 0;
     }
     move(input,map) {
         let PM = this.getPossibleMove(input)
@@ -50,8 +43,9 @@ class PuckMan {
        
     }
     draw(ctx) {
-        let posX = this.position.x * this.width;
-        let posY = this.position.y * this.height;
+        console.log('calling puckman ddraw')
+        let posX = this.x * this.width;
+        let posY = this.y * this.height;
         ctx.fillStyle ="Yellow";
         ctx.fillRect(posX, posY, this.width, this.height);
     }
@@ -61,24 +55,5 @@ class PuckMan {
         this.position.x += this.direction.x;
         this.position.y += this.direction.y;
     }
-    getNeighbors(grid) {
-        // Could be a property of the class?
-        let moves = [[-1,0],[0,1],[1,0],[0,-1]];
-        let neighbors = [];
-        for (let move of moves) {
-
-            const [row,col] = move;
-            let nr = row + this.position.y;
-            let nc = col + this.position.x;
-
-                //if it is or is not a wall, then we add this to our valid neighbors array;
-                if(isValidLocation(grid,nr,nc) && 
-                  (grid[nr][nc].type !== "wall")) {
-
-                    neighbors.push(grid[nr][nc]);
-                }
-        }
-        
-        return neighbors
-    }
 }
+export default PuckMan;

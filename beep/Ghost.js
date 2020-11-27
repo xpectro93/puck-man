@@ -1,7 +1,7 @@
 import Tile from "./Tile.js";
 class Ghost extends Tile{
-    constructor(x,y,w,h,type) {
-        super(x,y,w,h,type)
+    constructor(x,y,w,h) {
+        super(x,y,w,h)
         this.direction = {
             x:0,
             y:0
