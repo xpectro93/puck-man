@@ -46,18 +46,16 @@ class PuckMan extends Tile{
         let PM = this.getPossibleMove();
         let posTile = tiles[PM.y][PM.x];
 
-
+        // debugger;
         
         if( this.hasCollided(PM,posTile) && posTile.type === "wall" ) {
             this.direction = { x: 0, y: 0};
         }
-        if( this.hasCollided(PM) && posTile.type === "orb" ) {
+        if( this.hasCollided(PM,posTile) && posTile.type === "orb" ) {
             let tile = tiles[PM.y][PM.x];
             tile.type = "empty";
             tile.value = 0;
         }
-
-        // if ()
 
     }
     draw(ctx) {

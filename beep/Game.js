@@ -26,6 +26,7 @@ class Game {
         this.level.draw(ctx);
     }
     update() {
+        this.puckMan.puckCollide(this.level.board);
         this.puckMan.update();
     }
 }
