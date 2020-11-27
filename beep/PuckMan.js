@@ -40,6 +40,18 @@ class PuckMan extends Tile{
                   y: this.y + dir.y}
        
     }
+
+    willMove(tiles) {
+        let PM = this.getPossibleMove();
+        let posTile = tiles[PM.y][PM.x];
+
+        if( this.hasCollided(PM,posTile) && posTile.type === "wall" ) {
+            this.direction = { x: 0, y: 0};
+        }
+
+        // if ()
+
+    }
     draw(ctx) {
         let posX = this.x * this.width;
         let posY = this.y * this.height;
@@ -47,8 +59,11 @@ class PuckMan extends Tile{
         ctx.fillRect(posX, posY, this.width, this.height);
     }
 
+
     update() {
         //collision should be in the view of what the object is going to touch
+
+
         this.x += this.direction.x;
         this.y += this.direction.y;
     }
