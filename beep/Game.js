@@ -1,4 +1,5 @@
 import Level from "./Level.js";
+
 //game shouldd be in charge of rules
 class Game {
     constructor( gameWidth, gameHeight, speed ) {
