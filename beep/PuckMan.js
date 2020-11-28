@@ -10,6 +10,7 @@ class PuckMan extends Tile{
         }
         this.lastAttempt = {x: 0,y:0};
     }
+    
     updateDirection(input,map) {
         let PM = this.getPossibleMove(input)
         let posTile = map[PM.y][PM.x]
@@ -17,6 +18,11 @@ class PuckMan extends Tile{
             console.log("error",this.hasCollided(PM,posTile),PM,posTile )
             return};
         this.direction  =  input
+    }
+    getPossibleMove(dir = this.direction) {
+        return { x: this.x + dir.x,
+                 y: this.y + dir.y}
+       
     }
     moveLeft(tiles) {
         console.log('left')
@@ -41,12 +47,6 @@ class PuckMan extends Tile{
         this.updateDirection({x:0,y:1},tiles);
 
     }
-    getPossibleMove(dir = this.direction) {
-        return { x: this.x + dir.x,
-                 y: this.y + dir.y}
-       
-    }
-
     puckCollide(tiles) {
         //this should be broken down to smaller pieces to be added to board, andd if they return true updatee board
         let PM = this.getPossibleMove();
@@ -59,9 +59,8 @@ class PuckMan extends Tile{
             return;
         }
         if( this.hasCollided(PM,posTile) && posTile.type === "orb" ) {
-            let tile = tiles[PM.y][PM.x];
-            tile.type = "empty";
-            tile.value = 0;
+            posTile.type = "empty";
+            posTile.value = 0;
             this.update();
         }
 
