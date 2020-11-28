@@ -10,7 +10,7 @@ class PuckMan extends Tile{
         }
         this.lastAttempt = {x: 0,y:0};
     }
-    move(input,map) {
+    updateDirection(input,map) {
         let PM = this.getPossibleMove(input)
         let posTile = map[PM.y][PM.x]
         if(this.hasCollided(PM,posTile) && posTile.type === "wall"){
@@ -19,24 +19,26 @@ class PuckMan extends Tile{
         this.direction  =  input
     }
     moveLeft(tiles) {
-        console.log('leeft')
-        this.move({x:-1,y:0},tiles);     
+        console.log('left')
+        this.updateDirection({x:-1,y:0},tiles);     
     };
     
     moveRight(tiles) {
+        console.log('right')
 
-        this.move({x:1,y:0},tiles);
+        this.updateDirection({x:1,y:0},tiles);
     }
 
     moveUp(tiles) {
+        console.log('up')
 
-        this.move({x:0,y:-1},tiles);
+        this.updateDirection({x:0,y:-1},tiles);
     }
 
     moveDown(tiles) {
         console.log('down')
 
-        this.move({x:0,y:1},tiles);
+        this.updateDirection({x:0,y:1},tiles);
 
     }
     getPossibleMove(dir = this.direction) {
