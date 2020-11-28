@@ -50,6 +50,7 @@ class PuckMan extends Tile{
     puckCollide(tiles) {
         //this should be broken down to smaller pieces to be added to board, andd if they return true updatee board
         let PM = this.getPossibleMove();
+        console.log(PM,"THIS IS PM")
         let posTile = tiles[PM.y][PM.x];
 
         // debugger;
@@ -61,7 +62,6 @@ class PuckMan extends Tile{
         if( this.hasCollided(PM,posTile) && posTile.type === "orb" ) {
             posTile.type = "empty";
             posTile.value = 0;
-            this.update();
         }
 
     }
@@ -69,6 +69,7 @@ class PuckMan extends Tile{
         let posX = this.x * this.width;
         let posY = this.y * this.height;
         ctx.fillStyle ="Yellow";
+        console.log(posX,posY,this.width,this.height,this.type);
         ctx.fillRect(posX, posY, this.width, this.height);
     }
 

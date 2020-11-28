@@ -7,7 +7,7 @@ let ctx = canvas.getContext("2d");
 const GAME_WIDTH = canvas.width = window.innerWidth;
 const GAME_HEIGHT = canvas.height = window.innerHeight;
 
-const SPEED = 1.50;
+const SPEED = 0.50;
 let game = new Game( GAME_WIDTH, GAME_HEIGHT);
 let lastRenderTime = 0;
 
@@ -23,6 +23,7 @@ function gameLoop (currentTime) {
     
     ctx.clearRect(0,0,canvas.width, canvas.height)
     game.update();
+   
     game.draw(ctx);
 
 
