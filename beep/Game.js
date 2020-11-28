@@ -27,7 +27,7 @@ class Game {
     }
     update() {
         console.log('this is still happening')
-        this.puckMan.puckCollide(this.level.board);
+        this.puckMan.update(this.level.board);
         // this.puckMan.update();
     }
 }

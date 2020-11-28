@@ -72,9 +72,10 @@ class PuckMan extends Tile{
     }
 
 
-    update() {
+    update(board) {
         //collision should be in the view of what the object is going to touch
-        console.log(this.direction)
+        this.puckCollide(board);
+
 
         this.x += this.direction.x;
         this.y += this.direction.y;
