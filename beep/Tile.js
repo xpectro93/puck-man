@@ -19,7 +19,7 @@ class Tile {
             let nc = col + this.x;
 
                 //if it is or is not a wall, then we add this to our valid neighbors array;
-                if(isValidLocation(grid,nr,nc) && 
+                if(this.isValidLocation(grid,nr,nc) && 
                   (grid[nr][nc].type !== "wall")) {
 
                     neighbors.push(grid[nr][nc]);
@@ -34,12 +34,7 @@ class Tile {
      hasCollided(position, tile) {
 
         //if their x and y position is the same they have collided.
-        if(position.x === tile.x &&
-            position.y === tile.y) {
-    
-                return true;
-            }  
-        return false;
+        return position.x === tile.x && position.y === tile.y; 
     }
     draw( ctx ) {
         let posX = this.x * this.width;

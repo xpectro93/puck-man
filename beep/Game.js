@@ -26,8 +26,15 @@ class Game {
         this.level.draw(ctx);
     }
     update() {
+        console.log('this is still happening')
         this.puckMan.puckCollide(this.level.board);
-        this.puckMan.update();
+        // this.puckMan.update();
     }
 }
 export default Game;
+
+/**
+ * We can get each update method to take in gameTime
+ * this would allow us to update each Tile at different rates
+ * since puckman would be faster during his pellet power up mode
+ */

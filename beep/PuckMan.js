@@ -13,10 +13,13 @@ class PuckMan extends Tile{
     move(input,map) {
         let PM = this.getPossibleMove(input)
         let posTile = map[PM.y][PM.x]
-        if(this.hasCollided(PM,posTile) && posTile.type === "wall") return;
-        this.direction =  input
+        if(this.hasCollided(PM,posTile) && posTile.type === "wall"){
+            console.log("error",this.hasCollided(PM,posTile),PM,posTile )
+            return};
+        this.direction  =  input
     }
     moveLeft(tiles) {
+        console.log('leeft')
         this.move({x:-1,y:0},tiles);     
     };
     
@@ -31,6 +34,7 @@ class PuckMan extends Tile{
     }
 
     moveDown(tiles) {
+        console.log('down')
 
         this.move({x:0,y:1},tiles);
 
@@ -50,11 +54,13 @@ class PuckMan extends Tile{
         
         if( this.hasCollided(PM,posTile) && posTile.type === "wall" ) {
             this.direction = { x: 0, y: 0};
+            return;
         }
         if( this.hasCollided(PM,posTile) && posTile.type === "orb" ) {
             let tile = tiles[PM.y][PM.x];
             tile.type = "empty";
             tile.value = 0;
+            this.update();
         }
 
     }
@@ -68,7 +74,7 @@ class PuckMan extends Tile{
 
     update() {
         //collision should be in the view of what the object is going to touch
-
+        console.log(this.direction)
 
         this.x += this.direction.x;
         this.y += this.direction.y;
