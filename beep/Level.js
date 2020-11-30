@@ -1,5 +1,6 @@
 import Tile from "./Tile.js";
 import Ghost from './Ghost.js';
+import PuckMan from './PuckMan.js';
 const proto = [
 
 
@@ -43,13 +44,15 @@ class Level {
     }
     createBoard( levelArray,w,h) { 
         let grid = [];
-        let start;
+        let puckman;
         let ghosts = [];
         levelArray.forEach( (row, y) => {
             let objectRowArray = [];
 
             row.forEach( (box, x) => {
-                // if(box === 5) start = {x,y}
+                if(box === 5) {
+                    
+                }
                 let position = { x,y };
                 if(box === 1) {
                     let newWall = new Tile(x,y,w,h, "wall");
@@ -61,6 +64,7 @@ class Level {
                 } 
                 else if(box === "b") {
                     let blinky = new Ghost(x,y,w,h,'blinky');
+                    blinky.type = "ghost";
                     ghosts.push(blinky);
                     objectRowArray.push(blinky);
                 } 
@@ -77,7 +81,7 @@ class Level {
             })
             grid.push(objectRowArray);
         })
-        return grid;
+        return [grid, ghosts, puckman];
     }
     draw (ctx) {
         this.board.forEach( row => {
@@ -95,7 +99,7 @@ class Level {
             this.board[from[1]][from[0]].type = "pellet"
             this.board[to[1]][to[0]] = actor;
         };
-        
+
     }
 }
 export default Level;
