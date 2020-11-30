@@ -40,25 +40,33 @@ const proto = [
 //level shouldd be in charge of itself 
 class Level {
     constructor(width, height) {
-        this.board = this.createBoard(proto, width, height)
+        let x = this.createBoard(proto, width, height)
+        this.board = x[0];
+        this.ghosts = x[1];
+        // this.puckMan = x[2];
+        // debugger;
+
     }
     createBoard( levelArray,w,h) { 
         let grid = [];
-        let puckman;
+        // let puckman;
         let ghosts = [];
         levelArray.forEach( (row, y) => {
             let objectRowArray = [];
 
             row.forEach( (box, x) => {
-                if(box === 5) {
-                    
-                }
-                let position = { x,y };
+                // if(box === 5) {
+                //     puckman = new PuckMan(x,y,w,h);
+                //     puckman.type = "puck";
+                //     objectRowArray.push(puckman);
+                //     console.log('newpuckman');
+                //     // debugger
+                // }
                 if(box === 1) {
                     let newWall = new Tile(x,y,w,h, "wall");
                     objectRowArray.push(newWall);
                 }
-                 else if(box === 2 || box === 5) {
+                 else if(box === 2) {
                     let newOrb = new Tile(x,y,w,h, "orb");
                     objectRowArray.push(newOrb);
                 } 
@@ -70,6 +78,7 @@ class Level {
                 } 
                 else if(box === "p") {
                     let pinky = new Ghost(x,y,w,h,'pinky');
+                    pinky.type = "ghost";
                     ghosts.push(pinky);
                     objectRowArray.push(pinky);
 
@@ -81,22 +90,27 @@ class Level {
             })
             grid.push(objectRowArray);
         })
-        return [grid, ghosts, puckman];
+        return [grid, ghosts]
     }
     draw (ctx) {
-        this.board.forEach( row => {
-            row.forEach( cell => {
-                cell.draw(ctx);
+ 
+            this.board.forEach( (row,i) => {
+                // debugger;
+                row.forEach( (cell,j) => {
+
+                    // if(j === 14 && i ===23 )debugger
+                    cell.draw(ctx);
+                })
             })
-        })
-    };
+        }
+
     update(from, to, actor) {
         if(from.type === "puck") {
             this.board[from[1]][from[0]].type = "empty";
             this.board[to[1]][to[0]] = actor;
         }
         else {
-            this.board[from[1]][from[0]].type = "pellet"
+            this.board[from[1]][from[0]].type = "orb"
             this.board[to[1]][to[0]] = actor;
         };
 

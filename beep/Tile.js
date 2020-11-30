@@ -59,6 +59,8 @@ class Tile {
             ctx.fillRect(posX, posY, this.width, this.height);
         }
 
+        console.log("tiles drawn aiiiiii")
+
         
     }
 }

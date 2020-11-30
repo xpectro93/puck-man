@@ -18,21 +18,27 @@ class Game {
         this.puckMan = new PuckMan(13,23,this.gameWidth/28, this.gameHeight/31)
         this.puckMan.type = "puck";
 
-        debugger
+        // debugger
         this.level.board[this.puckMan.y][this.puckMan.x] = this.puckMan;
         new Input(this.puckMan, this.level.board);
+        console.log('done')
     }
     draw( ctx ) {
         this.level.draw(ctx);
     }
     update() {
         console.log('this is still happening');
+        // debugger
         // console.log(this.puckMan,this.level.board[this.puckMan.y][this.puckMan.x]);
         let to = this.puckMan.update(this.level.board);
         let from = [this.puckMan.x, this.puckMan.y];
-
+        console.log(to, from)
         this.level.update(from, to, this.puckMan);
+        
+        // console.log('from', from)
 
+        
+        // debugger;
     }
 }
 export default Game;

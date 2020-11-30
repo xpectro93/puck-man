@@ -57,6 +57,7 @@ class PuckMan extends Tile{
         
         if( this.hasCollided(PM,posTile) && posTile.type === "wall" ) {
             this.direction = { x: 0, y: 0};
+
             return;
         }
         if( this.hasCollided(PM,posTile) && posTile.type === "orb" ) {
@@ -71,10 +72,13 @@ class PuckMan extends Tile{
         ctx.fillStyle ="Yellow";
 
         ctx.fillRect(posX, posY, this.width, this.height);
+        console.log("puck drawn aiiiiii")
+
     }
 
 
     update(board) {
+        // debugger
         //collision should be in the view of what the object is going to touch
         this.puckCollide(board);
 
