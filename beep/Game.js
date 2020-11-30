@@ -28,7 +28,9 @@ class Game {
     update() {
         console.log('this is still happening')
         console.log(this.puckMan,this.level.board[this.puckMan.y][this.puckMan.x]);
-        this.puckMan.update(this.level.board);
+        let newLocation = this.puckMan.update(this.level.board);
+        this.level.board[this.puckMan.y][this.puckMan.x].type = "empty";
+        this.level.board[newLocation[1]][newLocation[0]] = this.puckMan;
         // this.puckMan.update();
     }
 }
