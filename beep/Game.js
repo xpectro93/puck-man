@@ -1,6 +1,6 @@
 import PuckMan from "./PuckMan.js";
 import Level from "./Level.js";
-import Input from "../js/Input.js";
+import Input from "./Input.js";
 //game shouldd be in charge of rules
 class Game {
     constructor( gameWidth, gameHeight) {
