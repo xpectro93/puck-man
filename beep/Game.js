@@ -21,7 +21,6 @@ class Game {
         // debugger
         this.level.board[this.puckMan.y][this.puckMan.x] = this.puckMan;
         new Input(this.puckMan, this.level.board);
-        console.log('done')
     }
     draw( ctx ) {
         this.level.draw(ctx);
@@ -32,7 +31,6 @@ class Game {
         // console.log(this.puckMan,this.level.board[this.puckMan.y][this.puckMan.x]);
         let to = this.puckMan.update(this.level.board);
         let from = [this.puckMan.x, this.puckMan.y];
-        console.log(to, from)
         this.level.update(from, to, this.puckMan);
     }
 }

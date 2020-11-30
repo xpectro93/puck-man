@@ -50,7 +50,6 @@ class PuckMan extends Tile{
     puckCollide(tiles) {
         //this should be broken down to smaller pieces to be added to board, andd if they return true updatee board
         let PM = this.getPossibleMove();
-        console.log(PM,"THIS IS PM")
         let posTile = tiles[PM.y][PM.x];
 
         // debugger;
@@ -72,7 +71,6 @@ class PuckMan extends Tile{
         ctx.fillStyle ="Yellow";
 
         ctx.fillRect(posX, posY, this.width, this.height);
-        console.log("puck drawn aiiiiii")
 
     }
 

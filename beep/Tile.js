@@ -58,9 +58,6 @@ class Tile {
             ctx.fillStyle = `rgb(24,24,24)`;
             ctx.fillRect(posX, posY, this.width, this.height);
         }
-
-        console.log("tiles drawn aiiiiii")
-
         
     }
 }
