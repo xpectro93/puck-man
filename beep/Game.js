@@ -34,11 +34,6 @@ class Game {
         let from = [this.puckMan.x, this.puckMan.y];
         console.log(to, from)
         this.level.update(from, to, this.puckMan);
-        
-        // console.log('from', from)
-
-        
-        // debugger;
     }
 }
 export default Game;

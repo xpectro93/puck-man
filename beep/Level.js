@@ -43,8 +43,6 @@ class Level {
         let x = this.createBoard(proto, width, height)
         this.board = x[0];
         this.ghosts = x[1];
-        // this.puckMan = x[2];
-        // debugger;
 
     }
     createBoard( levelArray,w,h) { 
@@ -72,13 +70,11 @@ class Level {
                 } 
                 else if(box === "b") {
                     let blinky = new Ghost(x,y,w,h,'blinky');
-                    blinky.type = "ghost";
                     ghosts.push(blinky);
                     objectRowArray.push(blinky);
                 } 
                 else if(box === "p") {
                     let pinky = new Ghost(x,y,w,h,'pinky');
-                    pinky.type = "ghost";
                     ghosts.push(pinky);
                     objectRowArray.push(pinky);
 
