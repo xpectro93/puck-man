@@ -86,11 +86,16 @@ class Level {
             })
         })
     };
-    update(from, to) {
+    update(from, to, actor) {
         if(from.type === "puck") {
-            this.board[from[1]][from[0]]
-
+            this.board[from[1]][from[0]].type = "empty";
+            this.board[to[1]][to[0]] = actor;
         }
+        else {
+            this.board[from[1]][from[0]].type = "pellet"
+            this.board[to[1]][to[0]] = actor;
+        };
+        
     }
 }
 export default Level;
