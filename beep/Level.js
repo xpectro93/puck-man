@@ -86,6 +86,12 @@ class Level {
             })
         })
     };
+    update(from, to) {
+        if(from.type === "puck") {
+            this.board[from[1]][from[0]]
+
+        }
+    }
 }
 export default Level;
 

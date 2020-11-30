@@ -69,7 +69,7 @@ class PuckMan extends Tile{
         let posX = this.x * this.width;
         let posY = this.y * this.height;
         ctx.fillStyle ="Yellow";
-        console.log(posX,posY,this.width,this.height,this.type);
+
         ctx.fillRect(posX, posY, this.width, this.height);
     }
 
@@ -81,6 +81,7 @@ class PuckMan extends Tile{
 
         this.x += this.direction.x;
         this.y += this.direction.y;
+        return [this.x, this.y]
     }
 }
 export default PuckMan;
