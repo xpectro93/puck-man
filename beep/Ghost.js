@@ -13,6 +13,9 @@ class Ghost extends Tile{
         if(this.type === "pinky") ctx.fillStyle = "pink";
         ctx.fillRect(this.x * this.width, this.y * this.height, this.width, this.height);
     }
+    update() {
+        
+    }
 };
 
 export default Ghost;

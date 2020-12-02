@@ -2,7 +2,7 @@ class Input {
     constructor(puck_man, tiles) {
       this.tiles = tiles
         document.addEventListener("keydown", e => {
-            console.log('Key is pressed', typeof e.key);
+            // console.log('Key is pressed', typeof e.key);
             switch (e.key) {
               /* UP */
               case 'ArrowUp':
