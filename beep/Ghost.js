@@ -3,10 +3,11 @@ import Tile from "./Tile.js";
 class Ghost extends Tile{
     constructor(x,y,w,h,type) {
         super(x,y,w,h,type)
-        this.direction = {
-            x:0,
-            y:0
-        }
+        // this.direction = {
+        //     x:0,
+        //     y:0
+        // }
+        this.queue = []
     }
     draw(ctx) {
         // debugger;
@@ -27,11 +28,17 @@ class Ghost extends Tile{
     
                 return;
             }
+            else if(search.openSet.length === 20) {
+
+                let path = search.constructPath();
+                debugger;
+                return;
+            }
             if(stepValue === 1) {
                 console.log('answer found');
                 let path = search.constructPath();
                 console.log("Path", path);
-                // this.draw(ctx)
+                this.queue = path;
                 path.forEach(tile => {
                     ctx.fillStyle ="purple"
                     ctx.fillRect(tile.x * tile.width,tile.y * tile.height, tile.width,tile.height );
