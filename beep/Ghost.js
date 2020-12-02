@@ -14,14 +14,34 @@ class Ghost extends Tile{
         if(this.type === "pinky") ctx.fillStyle = "pink";
         ctx.fillRect(this.x * this.width, this.y * this.height, this.width, this.height);
     }
-    update(puckman,tiles) {
+    update(puckman,tiles,ctx) {
         /* start, end, tiles */
+        debugger
         let search = new Pathing(this,puckman, tiles);
-        while( search.openSet.length ) {
+        while (search.openSet.length) {
+        
             let stepValue = search.step();
-            debugger;
-            
-        }
+    
+            if(!search.openSet.length) {
+                console.log("ended no answer");
+    
+                return;
+            }
+            if(stepValue === 1) {
+                console.log('answer found');
+                let path = search.constructPath();
+                console.log("Path", path);
+                // this.draw(ctx)
+                path.forEach(tile => {
+                    ctx.fillStyle ="purple"
+                    ctx.fillRect(tile.x * tile.width,tile.y * tile.height, tile.width,tile.height );
+                })
+
+                break;
+            }
+    
+           }
+           console.log("broken")
     }
 };
 

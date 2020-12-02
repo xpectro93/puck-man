@@ -59,7 +59,7 @@ class Pathing {
             if(this.closedSet.has(neighbor)) continue;
 
             //possible new g value for the neighbor of current vertex;
-            debugger;
+            // debugger;
             let tempG = current.g + this.getHeuristic(current, neighbor);
 
             //check if new path to neighbor is shorter OR if neighbor has never been visited.

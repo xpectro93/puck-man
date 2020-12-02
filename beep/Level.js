@@ -73,12 +73,12 @@ class Level {
                     ghosts.push(blinky);
                     objectRowArray.push(blinky);
                 } 
-                else if(box === "p") {
-                    let pinky = new Ghost(x,y,w,h,'pinky');
-                    ghosts.push(pinky);
-                    objectRowArray.push(pinky);
+                // else if(box === "p") {
+                //     let pinky = new Ghost(x,y,w,h,'pinky');
+                //     ghosts.push(pinky);
+                //     objectRowArray.push(pinky);
 
-                }
+                // }
                 else {
                     let newEmpty = new Tile(x,y,w,h);
                     objectRowArray.push(newEmpty);

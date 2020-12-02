@@ -26,9 +26,10 @@ function gameLoop (currentTime) {
    
     game.draw(ctx);
 
-
 }
-requestAnimationFrame(gameLoop);
+// requestAnimationFrame(gameLoop);
 
+game.draw(ctx);
+game.update(ctx);
 
 // game.draw(ctx)

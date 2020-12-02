@@ -25,13 +25,13 @@ class Game {
     draw( ctx ) {
         this.level.draw(ctx);
     }
-    update() {
+    update(ctx) {
         console.log('this is still happening');
-        // debugger
+        debugger
         
         // console.log(this.puckMan,this.level.board[this.puckMan.y][this.puckMan.x]);
         this.level.ghosts.forEach(ghost => {
-            console.log(ghost.update(this.puckMan, this.level.board));
+            console.log(ghost.update(this.puckMan, this.level.board,ctx));
         })
         let to = this.puckMan.update(this.level.board);
         let from = [this.puckMan.x, this.puckMan.y];
