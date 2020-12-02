@@ -1,3 +1,4 @@
+import Pathing from "./Pathing.js"
 import Tile from "./Tile.js";
 class Ghost extends Tile{
     constructor(x,y,w,h,type) {
@@ -14,7 +15,7 @@ class Ghost extends Tile{
         ctx.fillRect(this.x * this.width, this.y * this.height, this.width, this.height);
     }
     update() {
-        
+
     }
 };
 
