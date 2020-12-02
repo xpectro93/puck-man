@@ -26,6 +26,7 @@ class Game {
         this.level.draw(ctx);
     }
     update(ctx) {
+        // debugger
         console.log('this is still happening');
         // debugger
         
@@ -37,7 +38,7 @@ class Game {
         let from = [this.puckMan.x, this.puckMan.y];
 
         this.level.update(from, to, this.puckMan);
-
+        // debugger
         
     }
 }

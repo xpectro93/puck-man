@@ -22,14 +22,14 @@ function gameLoop (currentTime) {
     lastRenderTime = currentTime;
     
     ctx.clearRect(0,0,canvas.width, canvas.height)
-    game.update();
+    game.update(ctx);
    
     game.draw(ctx);
 
 }
-// requestAnimationFrame(gameLoop);
+requestAnimationFrame(gameLoop);
 
-game.draw(ctx);
-game.update(ctx);
+// game.draw(ctx);
+// game.update(ctx);
 
 // game.draw(ctx)

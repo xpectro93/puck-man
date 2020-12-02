@@ -14,7 +14,6 @@ class Pathing {
         //initialize at 0 because is the first item in the queue;
         let lowestFIndex = 0;
         for(let i = 0; i < this.openSet.length;i++) {
-            console.log('called', this.closedSet, this.openSet, this.target)
             //TODO:Change this to priority queue/minhheap for O(1) lookup
 
             //check if a vertex in openSet has Lower f than current lowest f
