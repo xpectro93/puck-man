@@ -32,6 +32,10 @@ class Game {
         let to = this.puckMan.update(this.level.board);
         let from = [this.puckMan.x, this.puckMan.y];
         this.level.update(from, to, this.puckMan);
+
+        this.level.ghosts.forEach(ghost => {
+            console.log(ghost);
+        })
     }
 }
 export default Game;
