@@ -16,7 +16,12 @@ class Ghost extends Tile{
     }
     update(puckman,tiles) {
         /* start, end, tiles */
-        let search = new Pathing(this,puckman, tiles)
+        let search = new Pathing(this,puckman, tiles);
+        while( search.openSet.length ) {
+            let stepValue = search.step();
+            debugger;
+            
+        }
     }
 };
 

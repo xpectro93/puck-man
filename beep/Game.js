@@ -28,14 +28,17 @@ class Game {
     update() {
         console.log('this is still happening');
         // debugger
+        
         // console.log(this.puckMan,this.level.board[this.puckMan.y][this.puckMan.x]);
+        this.level.ghosts.forEach(ghost => {
+            console.log(ghost.update(this.puckMan, this.level.board));
+        })
         let to = this.puckMan.update(this.level.board);
         let from = [this.puckMan.x, this.puckMan.y];
+
         this.level.update(from, to, this.puckMan);
 
-        this.level.ghosts.forEach(ghost => {
-            console.log(ghost);
-        })
+        
     }
 }
 export default Game;

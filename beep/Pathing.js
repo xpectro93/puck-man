@@ -59,6 +59,7 @@ class Pathing {
             if(this.closedSet.has(neighbor)) continue;
 
             //possible new g value for the neighbor of current vertex;
+            debugger;
             let tempG = current.g + this.getHeuristic(current, neighbor);
 
             //check if new path to neighbor is shorter OR if neighbor has never been visited.
@@ -80,8 +81,8 @@ class Pathing {
     }
     getHeuristic(start, end) {
         console.log("start abd ed",start,end)
-        let newX = Math.abs(start.position.x - end.position.x);
-        let newY = Math.abs(start.position.y - end.position.y);
+        let newX = Math.abs(start.x - end.x);
+        let newY = Math.abs(start.y - end.y);
 
         return newX + newY;
     }
