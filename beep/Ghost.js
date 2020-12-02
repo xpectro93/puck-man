@@ -17,7 +17,7 @@ class Ghost extends Tile{
     }
     update(puckman,tiles,ctx) {
         /* start, end, tiles */
-        debugger
+        // debugger
         let search = new Pathing(this,puckman, tiles);
         while (search.openSet.length) {
         
@@ -28,7 +28,7 @@ class Ghost extends Tile{
     
                 return;
             }
-            else if(search.openSet.length === 20) {
+            else if(search.closedSet.size === 10) {
 
                 let path = search.constructPath();
                 debugger;

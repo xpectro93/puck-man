@@ -27,7 +27,7 @@ class Game {
     }
     update(ctx) {
         console.log('this is still happening');
-        debugger
+        // debugger
         
         // console.log(this.puckMan,this.level.board[this.puckMan.y][this.puckMan.x]);
         this.level.ghosts.forEach(ghost => {
