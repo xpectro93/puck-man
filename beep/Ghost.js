@@ -19,6 +19,11 @@ class Ghost extends Tile{
         /* start, end, tiles */
         // debugger
         let search = new Pathing(this,puckman, tiles);
+        if( this.queue.length ) {
+            let n = this.queue.shift();
+            this.x = n.x;
+            this.y = n.y;
+        }
         while (search.openSet.length) {
         
             let stepValue = search.step();
@@ -38,18 +43,20 @@ class Ghost extends Tile{
                 return;
             }
             
-            // if(stepValue === 1) {
-            //     console.log('answer found');
-            //     let path = search.constructPath();
-            //     console.log("Path", path);
-            //     this.queue = path;
-            //     path.forEach(tile => {
-            //         ctx.fillStyle ="purple"
-            //         ctx.fillRect(tile.x * tile.width,tile.y * tile.height, tile.width,tile.height );
-            //     })
+            if(stepValue === 1) {
+                this.queue = path.splice(1);
 
-            //     break;
-            // }
+                // console.log('answer found');
+                // let path = search.constructPath();
+                // console.log("Path", path);
+                // this.queue = path;
+                // path.forEach(tile => {
+                //     ctx.fillStyle ="purple"
+                //     ctx.fillRect(tile.x * tile.width,tile.y * tile.height, tile.width,tile.height );
+                // })
+
+                break;
+            }
     
            }
            console.log("broken")
@@ -57,3 +64,12 @@ class Ghost extends Tile{
 };
 
 export default Ghost;
+
+/**
+ * we might be able to have some way to know if the ghost does a far seach
+ * of a short search and approach each update accordingly
+ * 
+ * if long search we only do a >13 close set search;
+ * 
+ * if short close search we get 
+ */
