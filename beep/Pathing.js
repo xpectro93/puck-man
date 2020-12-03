@@ -79,7 +79,7 @@ class Pathing {
         };
     }
     getHeuristic(start, end) {
-        console.log("start abd ed",start,end)
+        // console.log("start abd ed",start,end)
         let newX = Math.abs(start.x - end.x);
         let newY = Math.abs(start.y - end.y);
 

@@ -44,6 +44,8 @@ class Ghost extends Tile{
             }
             
             if(stepValue === 1) {
+                this.x = path[0].x;
+                this.y = path[0].y;
                 this.queue = path.splice(1);
 
                 // console.log('answer found');

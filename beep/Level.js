@@ -77,7 +77,6 @@ class Level {
                 //     let pinky = new Ghost(x,y,w,h,'pinky');
                 //     ghosts.push(pinky);
                 //     objectRowArray.push(pinky);
-
                 // }
                 else {
                     let newEmpty = new Tile(x,y,w,h);
