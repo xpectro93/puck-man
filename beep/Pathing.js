@@ -37,8 +37,6 @@ class Pathing {
         let current =  this.openSet[lowestFIndex];
         this.lastVertexVisited = current;
         // debugger
-
-        console.log("current", current)
         //check if we have found our target;
         if(this.target === current) {
             console.log('Target has been found');

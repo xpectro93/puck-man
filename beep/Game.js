@@ -26,10 +26,14 @@ class Game {
         this.level.draw(ctx);
     }
     update(ctx) {
-        // debugger
         console.log('this is still happening');
         // debugger
-        
+        let isGameOver = this.level.ghosts.every(ghost => {
+            return ghost.x === this.puckMan.x && ghost.y === this.puckMan.y
+        })
+        if( isGameOver ) {
+            debugger
+        }
         // console.log(this.puckMan,this.level.board[this.puckMan.y][this.puckMan.x]);
         this.level.ghosts.forEach(ghost => {
             console.log(ghost.update(this.puckMan, this.level.board,ctx));

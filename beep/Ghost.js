@@ -20,6 +20,8 @@ class Ghost extends Tile{
         // debugger
         let search = new Pathing(this,puckman, tiles);
         if( this.queue.length ) {
+            debugger;
+            console.log("POPPING")
             let n = this.queue.shift();
             this.x = n.x;
             this.y = n.y;
@@ -47,6 +49,7 @@ class Ghost extends Tile{
                 this.x = path[0].x;
                 this.y = path[0].y;
                 this.queue = path.splice(1);
+                debugger
 
                 // console.log('answer found');
                 // let path = search.constructPath();
