@@ -68,11 +68,11 @@ class Level {
                     let newOrb = new Tile(x,y,w,h, "orb");
                     objectRowArray.push(newOrb);
                 } 
-                else if(box === "b") {
-                    let blinky = new Ghost(x,y,w,h,'blinky');
-                    ghosts.push(blinky);
-                    objectRowArray.push(blinky);
-                } 
+                // else if(box === "b") {
+                //     let blinky = new Ghost(x,y,w,h,'blinky');
+                //     ghosts.push(blinky);
+                //     objectRowArray.push(blinky);
+                // } 
                 else if(box === "p") {
                     let pinky = new Ghost(x,y,w,h,'pinky');
                     ghosts.push(pinky);

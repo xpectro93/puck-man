@@ -8,6 +8,7 @@ class Ghost extends Tile{
         //     y:0
         // }
         this.queue = []
+        this.status = "chase"
     }
     draw(ctx) {
         // debugger;
