@@ -17,7 +17,7 @@ class Ghost extends Tile{
         ctx.fillRect(this.x * this.width, this.y * this.height, this.width, this.height);
     }
     updateStatus(newStatus) {
-    
+        this.status = newStatus;
     }
     update(puckman,tiles,ctx) {
         /* start, end, tiles */
