@@ -56,14 +56,7 @@ class Ghost extends Tile{
                 this.queue = path.splice(1);
                 // debugger
 
-                // console.log('answer found');
-                // let path = search.constructPath();
-                // console.log("Path", path);
-                // this.queue = path;
-                // path.forEach(tile => {
-                //     ctx.fillStyle ="purple"
-                //     ctx.fillRect(tile.x * tile.width,tile.y * tile.height, tile.width,tile.height );
-                // })
+       
 
                 break;
             }
