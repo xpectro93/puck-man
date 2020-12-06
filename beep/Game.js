@@ -18,7 +18,7 @@ class Game {
         this.puckMan = new PuckMan(13,23,this.gameWidth/28, this.gameHeight/31)
         this.puckMan.type = "puck";
 
-        // debugger
+
         this.level.board[this.puckMan.y][this.puckMan.x] = this.puckMan;
         new Input(this.puckMan, this.level.board);
     }
@@ -27,7 +27,7 @@ class Game {
     }
     update(ctx) {
         console.log('this is still happening');
-        // debugger
+
         let isGameOver = this.level.ghosts.every(ghost => {
             return ghost.x === this.puckMan.x && ghost.y === this.puckMan.y
         })
@@ -42,7 +42,7 @@ class Game {
         let from = [this.puckMan.x, this.puckMan.y];
 
         this.level.update(from, to, this.puckMan);
-        // debugger
+
         
     }
 }
