@@ -26,7 +26,6 @@ class Ghost extends Tile{
         if( this.queue.length ) {
             console.log("POPPING")
             let n = this.queue.shift();
-            debugger;
             this.x = n.x;
             this.y = n.y;
             return;
