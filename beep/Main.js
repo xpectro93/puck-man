@@ -29,6 +29,9 @@ function gameLoop (currentTime) {
 }
 requestAnimationFrame(gameLoop);
 
+ctx.font = "30px Arial";
+ctx.fillText("", 10, 50);
+
 // game.draw(ctx);
 // game.update(ctx);
 
